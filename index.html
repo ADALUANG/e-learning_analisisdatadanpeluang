@@ -1,1369 +1,1040 @@
-```html
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ADALUANG | Analisis Data dan Peluang</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --navy: #172554;
-      --blue: #3563e9;
-      --purple: #7554d9;
-      --teal: #16a6a1;
-      --bg: #f5f7ff;
-      --white: #ffffff;
-      --text: #24304d;
-      --muted: #718096;
-      --border: #e5eaf5;
-      --danger: #d64545;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Nunito', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    button, input, textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    .topbar {
-      background: white;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 15px;
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 25px;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      box-shadow: 0 5px 15px #3563e933;
-    }
-
-    .brand-name {
-      color: var(--navy);
-      font-size: 21px;
-      font-weight: 900;
-      letter-spacing: .5px;
-    }
-
-    .brand-subtitle {
-      font-size: 11px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .user-label {
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .page {
-      padding: 38px 0 60px;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      padding: 44px;
-      color: white;
-      background: linear-gradient(125deg, #172554, #3158c9 65%, #7554d9);
-      display: grid;
-      grid-template-columns: 1.4fr .6fr;
-      gap: 30px;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border: 45px solid #ffffff12;
-      border-radius: 50%;
-      right: -70px;
-      top: -100px;
-    }
-
-    .hero-content, .hero-illustration {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      background: #ffffff20;
-      border: 1px solid #ffffff35;
-      border-radius: 30px;
-      padding: 7px 13px;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.15;
-      margin: 0 0 15px;
-      font-weight: 900;
-    }
-
-    .hero p {
-      max-width: 620px;
-      line-height: 1.8;
-      color: #e2e9ff;
-      margin: 0 0 23px;
-    }
-
-    .hero-illustration {
-      display: grid;
-      place-items: center;
-      font-size: 110px;
-      filter: drop-shadow(0 10px 15px #11182735);
-    }
-
-    .btn {
-      border: none;
-      border-radius: 12px;
-      padding: 12px 18px;
-      font-weight: 800;
-      transition: .2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      color: white;
-      background: var(--blue);
-    }
-
-    .btn-light {
-      color: var(--navy);
-      background: white;
-    }
-
-    .btn-outline {
-      color: var(--navy);
-      background: white;
-      border: 1px solid var(--border);
-    }
-
-    .btn-danger {
-      color: var(--danger);
-      background: #fff0f0;
-    }
-
-    .btn-small {
-      font-size: 12px;
-      padding: 8px 12px;
-      border-radius: 9px;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 15px;
-      margin: 30px 0 18px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: 23px;
-      color: var(--navy);
-      font-weight: 900;
-    }
-
-    .section-heading p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 23px;
-      box-shadow: 0 5px 20px #26376b08;
-    }
-
-    .feature-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      font-size: 27px;
-      margin-bottom: 17px;
-    }
-
-    .blue-bg {
-      background: #e9efff;
-    }
-
-    .purple-bg {
-      background: #f0eaff;
-    }
-
-    .teal-bg {
-      background: #e0f8f5;
-    }
-
-    .card h3 {
-      margin: 0 0 9px;
-      color: var(--navy);
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0 0 18px;
-    }
-
-    .panel {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 26px;
-      margin-bottom: 22px;
-    }
-
-    .panel h2, .panel h3 {
-      color: var(--navy);
-      margin-top: 0;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      margin-bottom: 16px;
-    }
-
-    .field label {
-      font-size: 13px;
-      font-weight: 900;
-      color: var(--navy);
-    }
-
-    .field input, .field textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #dce3f1;
-      border-radius: 12px;
-      outline: none;
-      background: #fbfcff;
-      color: var(--text);
-    }
-
-    .field input:focus, .field textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px #3563e915;
-    }
-
-    .field textarea {
-      resize: vertical;
-      min-height: 95px;
-    }
-
-    .material-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .material-card {
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      padding: 20px;
-      background: white;
-      min-width: 0;
-    }
-
-    .material-card h3 {
-      color: var(--navy);
-      margin: 0 0 9px;
-      overflow-wrap: anywhere;
-    }
-
-    .material-card p {
-      color: var(--muted);
-      line-height: 1.7;
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
-
-    .material-meta {
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .material-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--muted);
-      background: white;
-      border: 1px dashed #cbd5e8;
-      border-radius: 18px;
-      grid-column: 1 / -1;
-    }
-
-    .notice {
-      padding: 13px 15px;
-      border-radius: 12px;
-      margin: 12px 0;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .notice-info {
-      color: #2548a5;
-      background: #edf2ff;
-    }
-
-    .notice-error {
-      color: #a52b2b;
-      background: #fff0f0;
-    }
-
-    .notice-success {
-      color: #146b4b;
-      background: #e6f8ef;
-    }
-
-    .login-wrap {
-      width: min(480px, 92%);
-      margin: 55px auto;
-    }
-
-    .login-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 25px;
-      padding: 32px;
-      box-shadow: 0 15px 45px #26376b12;
-    }
-
-    .login-icon {
-      width: 68px;
-      height: 68px;
-      border-radius: 21px;
-      display: grid;
-      place-items: center;
-      font-size: 32px;
-      margin-bottom: 20px;
-      background: #e9efff;
-    }
-
-    .login-card h1 {
-      color: var(--navy);
-      margin: 0 0 8px;
-      font-size: 27px;
-    }
-
-    .login-card > p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 14px;
-      margin-bottom: 23px;
-    }
-
-    .role-switch {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 23px;
-    }
-
-    .role-btn {
-      padding: 13px 10px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #f8faff;
-      color: var(--navy);
-      font-weight: 900;
-    }
-
-    .role-btn.active {
-      color: var(--blue);
-      background: #eaf0ff;
-      border-color: var(--blue);
-    }
-
-    .full-width {
-      width: 100%;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .status-pill {
-      display: inline-block;
-      border-radius: 30px;
-      padding: 5px 10px;
-      font-size: 11px;
-      font-weight: 900;
-      color: #16634c;
-      background: #e3f8ed;
-      margin-bottom: 12px;
-    }
-
-    @media (max-width: 760px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 28px;
-      }
-
-      .hero-illustration {
-        display: none;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .material-list {
-        grid-template-columns: 1fr;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .panel {
-        padding: 19px;
-      }
-
-      .login-card {
-        padding: 24px;
-      }
-
-      .nav {
-        padding: 12px 0;
-      }
-
-      .brand-name {
-        font-size: 18px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#172554">
+<title>ADALUANG | Analisis Data dan Peluang</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --navy: #172554;
+  --blue: #3b82f6;
+  --purple: #8b5cf6;
+  --teal: #14b8a6;
+  --muted: #64748b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  color: var(--navy);
+  background:
+    radial-gradient(ellipse at 5% 10%, #dbeafe 0, transparent 40%),
+    radial-gradient(ellipse at 95% 90%, #ede9fe 0, transparent 40%),
+    #f8fafc;
+}
+
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+
+.topbar {
+  max-width: 1120px;
+  margin: auto;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+
+.logo {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  box-shadow: 0 7px 18px #6366f140;
+}
+
+.brand-name {
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+}
+
+.brand-sub { color: var(--muted); font-size: 11px; letter-spacing: .5px; }
+
+.pill {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 30px;
+  padding: 9px 15px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+main { max-width: 1050px; margin: auto; padding: 22px 24px 50px; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 30px;
+  background: white;
+  padding: 42px;
+  border-radius: 30px;
+  border: 1px solid #e5eaf5;
+  box-shadow: 0 18px 50px #1725540a;
+  overflow: hidden;
+  position: relative;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 30px;
+  padding: 8px 13px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .6px;
+}
+
+h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin: 20px 0 14px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero-desc { max-width: 470px; color: var(--muted); line-height: 1.8; font-size: 15px; }
+
+.art { min-height: 250px; display: grid; place-items: center; position: relative; }
+
+.orbit {
+  width: 235px;
+  height: 235px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dbeafe, #ede9fe, #ccfbf1);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.chart-card {
+  width: 170px;
+  padding: 22px 20px;
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 15px 35px #17255420;
+  transform: rotate(-5deg);
+}
+
+.chart-title { font-size: 12px; font-weight: 900; margin-bottom: 17px; }
+
+.bars {
+  height: 85px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 2px solid #dbeafe;
+}
+
+.bar { width: 22px; border-radius: 7px 7px 2px 2px; }
+.b1 { height: 35%; background: #60a5fa; }
+.b2 { height: 70%; background: #818cf8; }
+.b3 { height: 50%; background: #c084fc; }
+.b4 { height: 95%; background: #2dd4bf; }
+
+.float {
+  position: absolute;
+  background: white;
+  border-radius: 15px;
+  padding: 13px 16px;
+  font-weight: 900;
+  box-shadow: 0 8px 25px #17255412;
+}
+
+.float.one { top: 14px; right: 0; color: #7c3aed; }
+.float.two { bottom: 10px; left: 0; color: #0d9488; }
+
+.section-head { margin: 38px 0 20px; text-align: center; }
+.section-head h2 { font-size: 26px; margin: 0 0 7px; }
+.section-head p { color: var(--muted); margin: 0; font-size: 14px; }
+
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.role-card {
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 24px;
+  padding: 25px;
+  text-align: left;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.role-card:hover { transform: translateY(-5px); box-shadow: 0 16px 32px #17255412; }
+
+.role-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  font-size: 29px;
+  margin-bottom: 18px;
+}
+
+.teacher-icon { background: #dbeafe; }
+.student-icon { background: #ccfbf1; }
+.role-card h3 { font-size: 22px; margin: 0 0 8px; }
+
+.role-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  min-height: 44px;
+}
+
+.role-card button, .primary-btn {
+  width: 100%;
+  border: 0;
+  padding: 14px;
+  border-radius: 13px;
+  color: white;
+  font-weight: 900;
+  margin-top: 10px;
+  transition: filter .2s;
+}
+
+.role-card button:hover, .primary-btn:hover { filter: brightness(.94); }
+.teacher-btn { background: linear-gradient(100deg, #3b82f6, #6366f1); }
+.student-btn { background: linear-gradient(100deg, #0d9488, #14b8a6); }
+
+.panel {
+  max-width: 460px;
+  margin: 30px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 18px 45px #17255410;
+}
+
+.panel.wide { max-width: 850px; }
+.panel-head { text-align: center; }
+.panel-head .role-icon { margin: 0 auto 15px; }
+.panel-head h2 { margin: 0 0 8px; font-size: 27px; }
+
+.panel-head p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+label { display: block; font-weight: 800; font-size: 13px; margin: 15px 0 8px; }
+
+input, textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 14px;
+  outline: none;
+  background: #f8fafc;
+}
+
+textarea { min-height: 100px; resize: vertical; }
+
+input:focus, textarea:focus { border-color: #818cf8; box-shadow: 0 0 0 3px #818cf822; }
+
+.error { color: #dc2626; font-size: 13px; margin-top: 12px; min-height: 20px; }
+
+.back-btn {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-weight: 800;
+}
+
+.notice {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 17px;
+}
+
+.welcome-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: 23px;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+}
+
+.dashboard-links { display: grid; gap: 10px; margin-top: 20px; }
+
+.dashboard-item { padding: 18px; border: 1px solid #e2e8f0; border-radius: 14px; background: #f8fafc; }
+.dashboard-item h3 { margin: 0 0 6px; font-size: 17px; }
+.dashboard-item p { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+
+.menu-btn {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  background: #eaf0ff;
+  color: #3157a4;
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+.menu-btn:hover { background: #dbe7ff; }
+
+.page-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.secondary-btn {
+  border: 0;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: #eaf0ff;
+  color: #3157a4;
+  font-weight: 900;
+}
+
+.material-form { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin: 20px 0; }
+
+.material-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+
+.material-card { border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; overflow-wrap: anywhere; }
+.material-card h3 { margin: 10px 0; }
+.material-card p { color: var(--muted); font-size: 13px; white-space: pre-wrap; }
+
+.material-tag { color: #2563eb; background: #eff6ff; border-radius: 7px; padding: 5px 8px; font-size: 11px; font-weight: 900; }
+
+.material-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
+
+.material-actions a, .material-actions button {
+  text-decoration: none;
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.open-material { background: #3157a4; color: white; }
+.delete-material { background: #fee2e2; color: #b91c1c; }
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  padding: 28px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+}
+
+footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px; }
+.hidden { display: none !important; }
+
+@media (max-width: 700px) {
+  .topbar { padding: 16px; }
+  .brand-name { font-size: 19px; }
+  .pill { font-size: 10px; padding: 8px; }
+  main { padding: 12px 16px 35px; }
+  .hero { grid-template-columns: 1fr; padding: 28px 23px; gap: 8px; }
+  .hero h1 { font-size: 37px; }
+  .art { min-height: 235px; }
+  .orbit { width: 205px; height: 205px; }
+  .roles { grid-template-columns: 1fr; }
+  .role-card p { min-height: 0; }
+  .section-head h2 { font-size: 23px; }
+  .panel { padding: 24px 20px; }
+  .material-list { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-icon">A</div>
-        <div>
-          <div class="brand-name">ADALUANG</div>
-          <div class="brand-subtitle">Analisis Data dan Peluang</div>
-        </div>
-      </div>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">A</div>
+    <div>
+      <div class="brand-name">ADALUANG</div>
+      <div class="brand-sub">RUANG BELAJAR MATEMATIKA</div>
+    </div>
+  </div>
+  <div class="pill">✨ SMA / MA</div>
+</header>
 
-      <div class="nav-actions">
-        <span class="user-label hidden" id="userLabel"></span>
-        <button class="btn btn-outline btn-small hidden" id="homeButton"
-          onclick="goHome()">Beranda</button>
-        <button class="btn btn-outline btn-small hidden" id="logoutButton"
-          onclick="logout()">Keluar</button>
+<main>
+  <section id="home">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">✦ BELAJAR • EKSPLORASI • TEMUKAN</span>
+        <h1>Angka punya cerita.<br><span class="gradient-text">Ayo temukan!</span></h1>
+        <p class="hero-desc">
+          Selamat datang di ADALUANG, ruang belajar Analisis Data
+          dan Peluang. Pahami konsep, coba eksperimen, dan uji
+          kemampuanmu dengan cara yang lebih menyenangkan.
+        </p>
+      </div>
+      <div class="art">
+        <div class="orbit">
+          <div class="chart-card">
+            <div class="chart-title">DATA INSIGHT ↗</div>
+            <div class="bars">
+              <div class="bar b1"></div>
+              <div class="bar b2"></div>
+              <div class="bar b3"></div>
+              <div class="bar b4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="float one">📊 Data</div>
+        <div class="float two">🎲 Peluang</div>
       </div>
     </div>
-  </header>
 
-  <main class="container page">
+    <div class="section-head">
+      <h2>Siap untuk mulai belajar?</h2>
+      <p>Pilih ruang belajar sesuai peranmu.</p>
+    </div>
 
-    <!-- HALAMAN BERANDA -->
-    <section id="home">
-      <div class="hero">
-        <div class="hero-content">
-          <span class="eyebrow">📚 Media Pembelajaran Matematika</span>
-          <h1>Belajar Data dan Peluang Jadi Lebih Mudah!</h1>
-          <p>
-            Selamat datang di ADALUANG, media pembelajaran Analisis Data dan
-            Peluang untuk membantu siswa memahami materi matematika melalui
-            sumber belajar yang terstruktur dan mudah diakses.
-          </p>
-          <button class="btn btn-light" onclick="showLogin('murid')">
-            Mulai Belajar →
-          </button>
-        </div>
-        <div class="hero-illustration">📊</div>
+    <div class="roles">
+      <article class="role-card">
+        <div class="role-icon teacher-icon">👩‍🏫</div>
+        <h3>Ruang Guru</h3>
+        <p>Kelola pembelajaran, siapkan soal, tinjau hasil, dan berikan feedback kepada murid.</p>
+        <button class="teacher-btn" onclick="chooseRole('guru')">Masuk sebagai Guru ↗</button>
+      </article>
+
+      <article class="role-card">
+        <div class="role-icon student-icon">🎓</div>
+        <h3>Ruang Murid</h3>
+        <p>Pelajari materi, amati grafik, lakukan simulasi, dan selesaikan tantangan matematika.</p>
+        <button class="student-btn" onclick="chooseRole('murid')">Masuk sebagai Murid ↗</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="login" class="panel hidden">
+    <div class="panel-head">
+      <div id="loginIcon" class="role-icon teacher-icon">🔐</div>
+      <h2 id="loginTitle">Akses Guru</h2>
+      <p id="loginDesc">Masukkan data akun untuk melanjutkan.</p>
+    </div>
+
+    <form id="loginForm">
+      <label id="nameLabel" for="fullName">Nama lengkap</label>
+      <input id="fullName" type="text" placeholder="Masukkan nama lengkap"
+        maxlength="80" autocomplete="name" required>
+
+      <label id="codeLabel" for="accessCode">Kode akses</label>
+      <input id="accessCode" type="password" placeholder="Masukkan kode akses"
+        autocomplete="off" required>
+
+      <button class="primary-btn teacher-btn" id="loginButton" type="submit">
+        Verifikasi dan Masuk →
+      </button>
+    </form>
+
+    <div id="error" class="error" role="alert"></div>
+
+    <div class="notice" id="loginNotice">
+      Gunakan akun yang sudah terdaftar untuk masuk.
+    </div>
+
+    <button class="back-btn" onclick="goHome()">← Kembali ke Beranda</button>
+  </section>
+
+  <section id="dashboard" class="panel wide hidden">
+    <div class="welcome-icon" id="welcomeIcon">🎓</div>
+    <div class="panel-head">
+      <h2 id="welcomeTitle">Selamat datang!</h2>
+      <p id="welcomeDesc"></p>
+    </div>
+
+    <div class="page-heading">
+      <h2>Menu Pembelajaran</h2>
+      <button class="secondary-btn" onclick="logout()">Keluar ↗</button>
+    </div>
+
+    <div id="dashboardLinks" class="dashboard-links"></div>
+  </section>
+
+  <section id="materiPage" class="panel wide hidden">
+    <div class="page-heading">
+      <div>
+        <span class="eyebrow">ADALUANG</span>
+        <h2>Materi Pembelajaran</h2>
+        <p style="color:var(--muted)">Analisis Data dan Peluang — SMA/MA</p>
       </div>
+      <button class="secondary-btn" onclick="kembaliDashboard()">← Dashboard</button>
+    </div>
 
-      <div class="section-heading">
-        <div>
-          <h2>Jelajahi ADALUANG</h2>
-          <p>Pilih akses sesuai kebutuhanmu.</p>
-        </div>
+    <div id="formMateri" class="material-form hidden">
+      <h3>＋ Tambahkan Materi</h3>
+      <form id="materialForm">
+        <label for="judulMateri">Judul materi</label>
+        <input id="judulMateri" type="text" placeholder="Contoh: Penyajian Data" required maxlength="150">
+
+        <label for="deskripsiMateri">Deskripsi</label>
+        <textarea id="deskripsiMateri" placeholder="Tuliskan deskripsi materi..." required maxlength="3000"></textarea>
+
+        <label for="linkMateri">Tautan PDF/PPT</label>
+        <input id="linkMateri" type="url" placeholder="https://..." required>
+
+        <button id="saveMaterialButton" type="submit" class="primary-btn teacher-btn">Simpan Materi</button>
+      </form>
+      <div id="materialError" class="error" role="alert"></div>
+      <div class="notice">
+        Tempelkan tautan file yang dapat diakses murid. File harus diunggah
+        terlebih dahulu ke penyimpanan seperti Google Drive.
       </div>
+    </div>
 
-      <div class="grid">
-        <article class="card">
-          <div class="feature-icon blue-bg">👩‍🏫</div>
-          <h3>Ruang Guru</h3>
-          <p>
-            Masuk untuk menambahkan dan mengelola materi pembelajaran
-            Analisis Data dan Peluang.
-          </p>
-          <button class="btn btn-primary full-width"
-            onclick="showLogin('guru')">Masuk sebagai Guru</button>
-        </article>
+    <h3>Daftar Materi</h3>
+    <p id="jumlahMateri" style="color:var(--muted)">Memuat materi...</p>
+    <div id="daftarMateri" class="material-list"></div>
+  </section>
 
-        <article class="card">
-          <div class="feature-icon purple-bg">📖</div>
-          <h3>Ruang Siswa</h3>
-          <p>
-            Akses materi pembelajaran yang tersedia untuk mendukung
-            kegiatan belajar matematika.
-          </p>
-          <button class="btn btn-primary full-width"
-            onclick="showLogin('murid')">Masuk sebagai Siswa</button>
-        </article>
+  <section id="comingPage" class="panel hidden">
+    <div class="panel-head">
+      <div class="welcome-icon">🚧</div>
+      <h2 id="comingTitle">Fitur berikutnya</h2>
+      <p>Menu ini akan dikembangkan pada tahap berikutnya.</p>
+    </div>
+    <button class="back-btn" onclick="kembaliDashboard()">← Dashboard</button>
+  </section>
+</main>
 
-        <article class="card">
-          <div class="feature-icon teal-bg">📈</div>
-          <h3>Belajar Terarah</h3>
-          <p>
-            Temukan kumpulan materi, penjelasan, dan tautan sumber belajar
-            yang disediakan guru.
-          </p>
-          <button class="btn btn-outline full-width"
-            onclick="showLogin('murid')">Lihat Materi</button>
-        </article>
-      </div>
-    </section>
+<footer>
+  ADALUANG © 2026 · Analisis Data dan Peluang<br>
+  Belajar matematika dengan cara yang lebih bermakna.
+</footer>
 
-    <!-- HALAMAN LOGIN -->
-    <section id="login" class="hidden">
-      <div class="login-wrap">
-        <div class="login-card">
-          <div class="login-icon" id="loginIcon">🔐</div>
-          <h1 id="loginTitle">Masuk ke ADALUANG</h1>
-          <p id="loginDesc">Pilih jenis akun untuk melanjutkan.</p>
+<script type="module">
+import { initializeApp }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-          <div class="role-switch">
-            <button class="role-btn active" id="roleGuru"
-              onclick="chooseRole('guru')">👩‍🏫 Guru</button>
-            <button class="role-btn" id="roleMurid"
-              onclick="chooseRole('murid')">🎓 Siswa</button>
-          </div>
+import {
+  getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-          <form id="teacherLoginForm">
-            <div class="field">
-              <label for="teacherEmail">Email akun guru</label>
-              <input id="teacherEmail" type="email"
-                placeholder="nama@email.com" autocomplete="username" required>
-            </div>
+import {
+  getFirestore, doc, getDoc, collection, addDoc, deleteDoc,
+  onSnapshot, query, orderBy, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-            <div class="field">
-              <label for="teacherPassword">Password</label>
-              <input id="teacherPassword" type="password"
-                placeholder="Masukkan password" autocomplete="current-password"
-                required>
-            </div>
+const firebaseConfig = {
+  apiKey: "AIzaSyDuVGHdk05SzOdTGuXsqfKZZwF1dYsmQDU",
+  authDomain: "adaluang.firebaseapp.com",
+  projectId: "adaluang",
+  storageBucket: "adaluang.firebasestorage.app",
+  messagingSenderId: "970393246155",
+  appId: "1:970393246155:web:e2f6971c49d85624acbe4",
+  measurementId: "G-PNKBBCZLMN"
+};
 
-            <button class="btn btn-primary full-width" id="teacherLoginButton"
-              type="submit">Masuk sebagai Guru</button>
-          </form>
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-          <form id="studentLoginForm" class="hidden">
-            <div class="field">
-              <label for="studentName">Nama siswa</label>
-              <input id="studentName" type="text"
-                placeholder="Masukkan nama" maxlength="80" required>
-            </div>
+// Kode akses murid tetap seperti versi sebelumnya.
+const STUDENT_ACCESS_CODE = "MURIDADALUANG";
 
-            <div class="field">
-              <label for="studentCode">Kode akses siswa</label>
-              <input id="studentCode" type="password"
-                placeholder="Masukkan kode akses" required>
-            </div>
+let selectedRole = "";
+let activeUser = null;
+let activeRole = null;
+let studentName = "";
+let unsubscribeMaterials = null;
+let materials = [];
 
-            <button class="btn btn-primary full-width" type="submit">
-              Masuk sebagai Siswa
-            </button>
-          </form>
+const $ = id => document.getElementById(id);
+const PAGE_IDS = ["home", "login", "dashboard", "materiPage", "comingPage"];
 
-          <div id="loginMessage" aria-live="polite"></div>
+function showPage(id) {
+  PAGE_IDS.forEach(page => $(page).classList.toggle("hidden", page !== id));
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
-          <button class="btn btn-outline full-width"
-            style="margin-top:12px" onclick="goHome()">
-            ← Kembali ke Beranda
-          </button>
-        </div>
-      </div>
-    </section>
+function showError(message) {
+  $("error").textContent = message || "";
+}
 
-    <!-- DASHBOARD -->
-    <section id="dashboard" class="hidden">
-      <div class="hero">
-        <div class="hero-content">
-          <span class="eyebrow" id="dashboardBadge">Dashboard</span>
-          <h1 id="welcomeTitle">Selamat datang!</h1>
-          <p id="welcomeDesc">
-            Selamat datang di ruang belajar ADALUANG.
-          </p>
-          <button class="btn btn-light" onclick="openMaterials()">
-            📚 Buka Materi
-          </button>
-        </div>
-        <div class="hero-illustration">📘</div>
-      </div>
+function stopMaterialsListener() {
+  if (unsubscribeMaterials) {
+    unsubscribeMaterials();
+    unsubscribeMaterials = null;
+  }
+}
 
-      <div class="grid">
-        <article class="card">
-          <div class="feature-icon blue-bg">📚</div>
-          <h3>Materi Pembelajaran</h3>
-          <p>Lihat materi Analisis Data dan Peluang yang telah tersedia.</p>
-          <button class="btn btn-primary full-width"
-            onclick="openMaterials()">Buka Materi</button>
-        </article>
+function safeUrl(value) {
+  try {
+    const url = new URL(value);
+    return ["https:", "http:"].includes(url.protocol) ? url.href : null;
+  } catch {
+    return null;
+  }
+}
 
-        <article class="card" id="teacherFeature">
-          <div class="feature-icon purple-bg">✍️</div>
-          <h3>Kelola Materi</h3>
-          <p>Tambahkan sumber belajar dan atur materi yang kamu buat.</p>
-          <button class="btn btn-primary full-width"
-            onclick="openMaterials(true)">Kelola Materi</button>
-        </article>
+function clearSession() {
+  stopMaterialsListener();
+  activeUser = null;
+  activeRole = null;
+  studentName = "";
+  materials = [];
+}
 
-        <article class="card">
-          <div class="feature-icon teal-bg">📊</div>
-          <h3>Analisis Data dan Peluang</h3>
-          <p>Pelajari konsep matematika melalui materi yang disediakan.</p>
-          <button class="btn btn-outline full-width"
-            onclick="openMaterials()">Mulai Belajar</button>
-        </article>
-      </div>
-    </section>
+function showRoleForm(role) {
+  selectedRole = role;
+  const isTeacher = role === "guru";
 
-    <!-- HALAMAN MATERI -->
-    <section id="materiPage" class="hidden">
-      <div class="section-heading">
-        <div>
-          <h2>📚 Materi Pembelajaran</h2>
-          <p>Kumpulan materi Analisis Data dan Peluang.</p>
-        </div>
-        <button class="btn btn-outline" onclick="goDashboard()">
-          ← Kembali
-        </button>
-      </div>
+  $("login").classList.remove("hidden");
+  $("home").classList.add("hidden");
+  $("dashboard").classList.add("hidden");
+  $("materiPage").classList.add("hidden");
+  $("comingPage").classList.add("hidden");
 
-      <div id="teacherTools" class="panel hidden">
-        <h2>✍️ Tambahkan Materi</h2>
-        <p style="color:var(--muted);font-size:14px;line-height:1.7">
-          Isi informasi materi dan tautan sumber belajar. Materi yang
-          kamu tambahkan akan tersimpan di Firebase.
-        </p>
+  $("loginTitle").textContent = isTeacher ? "Ruang Guru" : "Ruang Murid";
+  $("loginDesc").textContent = isTeacher
+    ? "Masuk menggunakan email dan password akun guru."
+    : "Masukkan nama lengkap dan kode akses murid.";
 
-        <form id="formMateri">
-          <div class="field">
-            <label for="judulMateri">Judul materi *</label>
-            <input id="judulMateri" type="text"
-              placeholder="Contoh: Penyajian Data" maxlength="150" required>
-          </div>
+  $("loginIcon").textContent = isTeacher ? "👩‍🏫" : "🎓";
+  $("loginIcon").className =
+    "role-icon " + (isTeacher ? "teacher-icon" : "student-icon");
 
-          <div class="field">
-            <label for="deskripsiMateri">Deskripsi materi *</label>
-            <textarea id="deskripsiMateri"
-              placeholder="Tuliskan penjelasan singkat materi..."
-              maxlength="3000" required></textarea>
-          </div>
+  $("loginButton").className =
+    "primary-btn " + (isTeacher ? "teacher-btn" : "student-btn");
 
-          <div class="field">
-            <label for="linkMateri">Link materi (opsional)</label>
-            <input id="linkMateri" type="url"
-              placeholder="https://contoh.com/materi">
-          </div>
+  $("loginButton").textContent = isTeacher
+    ? "Masuk ke Ruang Guru →"
+    : "Masuk ke Ruang Murid →";
 
-          <button class="btn btn-primary" id="saveMaterialButton"
-            type="submit">+ Simpan Materi</button>
-        </form>
+  $("nameLabel").textContent = isTeacher ? "Email akun guru" : "Nama lengkap";
+  $("fullName").type = isTeacher ? "email" : "text";
+  $("fullName").placeholder = isTeacher ? "nama@email.com" : "Masukkan nama lengkap";
+  $("fullName").autocomplete = isTeacher ? "username" : "name";
 
-        <div id="materialMessage" aria-live="polite"></div>
-      </div>
+  $("codeLabel").textContent = isTeacher ? "Password" : "Kode akses";
+  $("accessCode").autocomplete = isTeacher ? "current-password" : "off";
+  $("accessCode").placeholder = isTeacher ? "Masukkan password" : "Masukkan kode akses";
 
-      <div class="section-heading">
-        <div>
-          <h2>Daftar Materi</h2>
-          <p id="materialCount">Memuat materi...</p>
-        </div>
-      </div>
+  $("fullName").value = "";
+  $("accessCode").value = "";
+  showError("");
 
-      <div id="daftarMateri" class="material-list">
-        <div class="empty-state">Menghubungkan ke database...</div>
-      </div>
-    </section>
+  $("loginNotice").textContent = isTeacher
+    ? "Gunakan email dan password akun guru yang sudah didaftarkan di Firebase Authentication."
+    : "Gunakan kode akses murid yang diberikan oleh pengelola ADALUANG.";
+}
 
-  </main>
+window.chooseRole = showRoleForm;
+window.goHome = () => showPage(activeUser || activeRole === "murid" ? "dashboard" : "home");
+window.kembaliDashboard = () => showPage(activeUser || activeRole === "murid" ? "dashboard" : "home");
 
-  <footer class="footer">
-    ADALUANG · Analisis Data dan Peluang
-    <br>
-    Media Pembelajaran Matematika
-  </footer>
+function buildDashboard() {
+  $("welcomeIcon").textContent = activeRole === "guru" ? "👩‍🏫" : "🎓";
+  $("welcomeTitle").textContent = "Halo, " +
+    (activeRole === "guru" ? (activeUser.email || "Guru") : studentName) + "! 👋";
 
-  <script type="module">
-    import { initializeApp }
-      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  $("welcomeDesc").textContent = activeRole === "guru"
+    ? "Selamat datang di ruang pengelolaan pembelajaran ADALUANG."
+    : "Saatnya menjelajahi dunia Analisis Data dan Peluang.";
 
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  const links = $("dashboardLinks");
+  links.replaceChildren();
 
-    import {
-      getFirestore,
-      doc,
-      getDoc,
-      collection,
-      addDoc,
-      deleteDoc,
-      onSnapshot,
-      query,
-      orderBy,
-      serverTimestamp
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  const menus = [
+    {
+      ikon: "📚",
+      judul: "Materi",
+      deskripsi: activeRole === "guru"
+        ? "Tambahkan dan kelola materi pembelajaran."
+        : "Lihat materi pembelajaran yang tersedia.",
+      aksi: bukaMateri
+    },
+    {
+      ikon: "📝",
+      judul: "Soal Latihan",
+      deskripsi: "Latihan soal Analisis Data dan Peluang.",
+      aksi: () => bukaFitur("Soal Latihan")
+    },
+    {
+      ikon: "💬",
+      judul: "Feedback",
+      deskripsi: "Umpan balik kegiatan pembelajaran.",
+      aksi: () => bukaFitur("Feedback")
+    },
+    {
+      ikon: "📊",
+      judul: "Progres Belajar",
+      deskripsi: "Informasi perkembangan belajar.",
+      aksi: () => bukaFitur("Progres Belajar")
+    }
+  ];
 
-    // KONFIGURASI FIREBASE ADALUANG
-    const firebaseConfig = {
-      apiKey: "AIzaSyDuVGHdk05SzOdTGuXsqfKZZwF1dYsmQDU",
-      authDomain: "adaluang.firebaseapp.com",
-      projectId: "adaluang",
-      storageBucket: "adaluang.firebasestorage.app",
-      messagingSenderId: "970393246155",
-      appId: "1:970393246155:web:e2f6971c49d85624acbe4",
-      measurementId: "G-PNKBBCZLMN"
-    };
+  menus.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "dashboard-item";
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+    const title = document.createElement("h3");
+    title.textContent = item.ikon + " " + item.judul;
 
-    // KODE AKSES SISWA.
-    // Ganti jika kamu ingin memakai kode yang berbeda.
-    const STUDENT_ACCESS_CODE = "MURIDADALUANG";
+    const desc = document.createElement("p");
+    desc.textContent = item.deskripsi;
 
-    let currentUser = null;
-    let currentRole = null;
-    let studentName = "";
-    let unsubscribeMaterials = null;
-    let allMaterials = [];
+    const button = document.createElement("button");
+    button.className = "menu-btn";
+    button.type = "button";
+    button.textContent = "Buka Menu →";
+    button.addEventListener("click", item.aksi);
 
-    const $ = (id) => document.getElementById(id);
+    card.append(title, desc, button);
+    links.appendChild(card);
+  });
 
-    function showMessage(id, message, type = "info") {
-      const element = $(id);
-      if (!element) return;
+  showPage("dashboard");
+}
 
-      element.replaceChildren();
+function bukaFitur(nama) {
+  $("comingTitle").textContent = nama;
+  showPage("comingPage");
+}
 
-      if (!message) return;
+async function getRole(user) {
+  const userSnap = await getDoc(doc(db, "users", user.uid));
 
-      const notice = document.createElement("div");
-      notice.className = `notice notice-${type}`;
-      notice.textContent = message;
-      element.appendChild(notice);
+  if (!userSnap.exists()) {
+    throw new Error("Dokumen users untuk akun ini belum dibuat di Firestore.");
+  }
+
+  const role = userSnap.data().role;
+
+  if (!["admin", "guru"].includes(role)) {
+    throw new Error("Akun ini belum memiliki peran guru atau admin.");
+  }
+
+  return role;
+}
+
+$("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const identity = $("fullName").value.trim();
+  const code = $("accessCode").value.trim();
+
+  showError("");
+
+  if (!selectedRole) {
+    showError("Pilih jenis akses terlebih dahulu.");
+    return;
+  }
+
+  if (selectedRole === "murid") {
+    if (!identity) {
+      showError("Nama lengkap harus diisi.");
+      return;
     }
 
-    function showSection(sectionId) {
-      ["home", "login", "dashboard", "materiPage"].forEach(id => {
-        $(id).classList.toggle("hidden", id !== sectionId);
+    if (code !== STUDENT_ACCESS_CODE) {
+      showError("Kode akses tidak sesuai. Silakan periksa kembali.");
+      return;
+    }
+
+    // Akses murid tetap menggunakan kode seperti versi asli.
+    // Murid tidak memperoleh akses tulis ke Firestore.
+    activeUser = null;
+    activeRole = "murid";
+    studentName = identity;
+
+    buildDashboard();
+    startMaterialsListener();
+    return;
+  }
+
+  const button = $("loginButton");
+  button.disabled = true;
+  button.textContent = "Memeriksa akun...";
+
+  try {
+    const credential = await signInWithEmailAndPassword(auth, identity, code);
+    const role = await getRole(credential.user);
+
+    activeUser = credential.user;
+    activeRole = "guru";
+    studentName = "";
+
+    buildDashboard();
+    startMaterialsListener();
+  } catch (error) {
+    console.error("Login guru gagal:", error);
+
+    const messages = {
+      "auth/invalid-credential": "Email atau password salah.",
+      "auth/invalid-email": "Format email tidak valid.",
+      "auth/too-many-requests": "Terlalu banyak percobaan. Coba lagi nanti.",
+      "auth/network-request-failed": "Koneksi internet bermasalah.",
+      "permission-denied": "Akses database ditolak. Periksa Firestore Rules."
+    };
+
+    showError(messages[error.code] || error.message || "Login gagal.");
+
+    if (auth.currentUser) {
+      await signOut(auth).catch(() => {});
+    }
+  } finally {
+    button.disabled = false;
+    button.textContent = "Masuk ke Ruang Guru →";
+  }
+});
+
+window.logout = async function() {
+  try {
+    if (auth.currentUser) await signOut(auth);
+  } catch (error) {
+    showError("Gagal keluar: " + error.message);
+    return;
+  }
+
+  clearSession();
+  selectedRole = "";
+  showPage("home");
+};
+
+function bukaMateri() {
+  if (!activeUser && activeRole !== "murid") {
+    showPage("home");
+    return;
+  }
+
+  $("formMateri").classList.toggle("hidden", activeRole !== "guru");
+  $("materialError").textContent = "";
+  showPage("materiPage");
+  renderMaterials();
+}
+
+function startMaterialsListener() {
+  stopMaterialsListener();
+
+  $("jumlahMateri").textContent = "Memuat materi...";
+  $("daftarMateri").replaceChildren();
+
+  // Urutkan di sisi klien agar tidak membutuhkan indeks tambahan.
+  unsubscribeMaterials = onSnapshot(
+    collection(db, "materials"),
+    snapshot => {
+      materials = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+
+      materials.sort((a, b) => {
+        const timeA = a.createdAt?.toMillis?.() || 0;
+        const timeB = b.createdAt?.toMillis?.() || 0;
+        return timeB - timeA;
       });
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function setHeader(loggedIn, label = "") {
-      $("userLabel").textContent = label;
-      $("userLabel").classList.toggle("hidden", !loggedIn);
-      $("homeButton").classList.toggle("hidden", !loggedIn);
-      $("logoutButton").classList.toggle("hidden", !loggedIn);
-    }
-
-    function updateLoginRole(role) {
-      currentRole = role;
-
-      const isTeacher = role === "guru";
-
-      $("roleGuru").classList.toggle("active", isTeacher);
-      $("roleMurid").classList.toggle("active", !isTeacher);
-
-      $("teacherLoginForm").classList.toggle("hidden", !isTeacher);
-      $("studentLoginForm").classList.toggle("hidden", isTeacher);
-
-      $("loginIcon").textContent = isTeacher ? "👩‍🏫" : "🎓";
-      $("loginTitle").textContent = isTeacher
-        ? "Login Guru"
-        : "Login Siswa";
-
-      $("loginDesc").textContent = isTeacher
-        ? "Masuk menggunakan email dan password akun guru yang telah terdaftar."
-        : "Masukkan nama dan kode akses untuk melihat materi pembelajaran.";
-
-      showMessage("loginMessage", "");
-    }
-
-    window.showLogin = function(role = "murid") {
-      if (currentUser || currentRole === "murid") {
-        currentRole = null;
-      }
-
-      updateLoginRole(role);
-      showSection("login");
-    };
-
-    window.chooseRole = function(role) {
-      updateLoginRole(role);
-    };
-
-    window.goHome = function() {
-      if (currentUser || currentRole === "murid") {
-        showSection("dashboard");
-      } else {
-        showSection("home");
-      }
-    };
-
-    window.goDashboard = function() {
-      showSection("dashboard");
-    };
-
-    window.openMaterials = function(manage = false) {
-      showSection("materiPage");
-
-      const canManage = currentRole === "guru" && currentUser;
-
-      $("teacherTools").classList.toggle("hidden", !canManage);
-
-      if (manage && canManage) {
-        $("judulMateri").focus();
-      }
-    };
-
-    window.logout = async function() {
-      if (currentUser) {
-        try {
-          await signOut(auth);
-        } catch (error) {
-          showMessage("loginMessage", error.message, "error");
-          return;
-        }
-      }
-
-      clearSession();
-      showSection("home");
-    };
-
-    function clearSession() {
-      currentUser = null;
-      currentRole = null;
-      studentName = "";
-
-      if (unsubscribeMaterials) {
-        unsubscribeMaterials();
-        unsubscribeMaterials = null;
-      }
-
-      allMaterials = [];
-      setHeader(false);
-    }
-
-    async function getUserRole(user) {
-      const userRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-
-      if (!userSnap.exists()) {
-        throw new Error(
-          "Akun ini belum memiliki dokumen pengguna di Firestore. " +
-          "Admin perlu membuat dokumen users dengan ID UID akun dan role guru atau admin."
-        );
-      }
-
-      const role = userSnap.data().role;
-
-      if (!["guru", "admin"].includes(role)) {
-        throw new Error(
-          "Akun ini tidak memiliki hak akses guru atau admin."
-        );
-      }
-
-      return role;
-    }
-
-    $("teacherLoginForm").addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      const email = $("teacherEmail").value.trim();
-      const password = $("teacherPassword").value;
-
-      const button = $("teacherLoginButton");
-      button.disabled = true;
-      button.textContent = "Memeriksa akun...";
-      showMessage("loginMessage", "");
-
-      try {
-        const credential = await signInWithEmailAndPassword(
-          auth, email, password
-        );
-
-        const role = await getUserRole(credential.user);
-
-        currentUser = credential.user;
-        currentRole = "guru";
-
-        $("welcomeTitle").textContent =
-          `Selamat datang, ${email}!`;
-
-        $("welcomeDesc").textContent =
-          "Kelola materi pembelajaran ADALUANG melalui dashboard guru.";
-
-        $("dashboardBadge").textContent =
-          role === "admin" ? "Administrator" : "Ruang Guru";
-
-        $("teacherFeature").classList.remove("hidden");
-
-        setHeader(true, role === "admin" ? "Admin" : "Guru");
-
-        subscribeMaterials();
-        showSection("dashboard");
-
-      } catch (error) {
-        console.error("Login guru gagal:", error);
-
-        let message = "Login gagal. Periksa email dan password.";
-
-        if (error.code === "auth/invalid-credential" ||
-            error.code === "auth/wrong-password" ||
-            error.code === "auth/user-not-found") {
-          message = "Email atau password salah. Periksa kembali akunmu.";
-        } else if (error.code === "auth/invalid-email") {
-          message = "Format email tidak valid.";
-        } else if (error.code === "auth/too-many-requests") {
-          message = "Terlalu banyak percobaan. Coba lagi nanti.";
-        } else if (error.code === "auth/network-request-failed") {
-          message = "Koneksi internet bermasalah. Periksa koneksimu.";
-        } else if (error.code === "permission-denied") {
-          message = "Akses database ditolak. Periksa Firestore Security Rules.";
-        } else if (error.message) {
-          message = error.message;
-        }
-
-        showMessage("loginMessage", message, "error");
-
-        if (auth.currentUser) {
-          await signOut(auth).catch(() => {});
-        }
-      } finally {
-        button.disabled = false;
-        button.textContent = "Masuk sebagai Guru";
-      }
-    });
-
-    $("studentLoginForm").addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const name = $("studentName").value.trim();
-      const code = $("studentCode").value.trim();
-
-      if (!name) {
-        showMessage("loginMessage", "Masukkan nama terlebih dahulu.", "error");
-        return;
-      }
-
-      if (code !== STUDENT_ACCESS_CODE) {
-        showMessage("loginMessage", "Kode akses siswa salah.", "error");
-        return;
-      }
-
-      // Akses siswa menggunakan kode, bukan akun Firebase.
-      currentUser = null;
-      currentRole = "murid";
-      studentName = name;
-
-      $("welcomeTitle").textContent = `Halo, ${name}!`;
-      $("welcomeDesc").textContent =
-        "Selamat belajar! Kamu dapat melihat materi yang tersedia di ADALUANG.";
-
-      $("dashboardBadge").textContent = "Ruang Siswa";
-      $("teacherFeature").classList.add("hidden");
-
-      setHeader(true, "Siswa");
-
-      subscribeMaterials();
-      showSection("dashboard");
-    });
-
-    function subscribeMaterials() {
-      if (unsubscribeMaterials) {
-        unsubscribeMaterials();
-      }
-
+      renderMaterials();
+    },
+    error => {
+      console.error("Gagal memuat materi:", error);
+      $("jumlahMateri").textContent = "Materi belum dapat dimuat.";
       $("daftarMateri").replaceChildren();
 
-      const materialsQuery = query(
-        collection(db, "materials"),
-        orderBy("createdAt", "desc")
-      );
+      const empty = document.createElement("div");
+      empty.className = "empty-state";
+      empty.textContent =
+        "Tidak dapat memuat materi. Periksa Firestore Security Rules dan koneksi internet.";
+      $("daftarMateri").appendChild(empty);
+    }
+  );
+}
 
-      unsubscribeMaterials = onSnapshot(
-        materialsQuery,
-        (snapshot) => {
-          allMaterials = snapshot.docs.map((document) => ({
-            id: document.id,
-            ...document.data()
-          }));
+function renderMaterials() {
+  const list = $("daftarMateri");
+  list.replaceChildren();
 
-          renderMaterials();
-        },
-        (error) => {
-          console.error("Gagal memuat materi:", error);
+  $("jumlahMateri").textContent = materials.length + " materi tersedia";
 
-          $("daftarMateri").replaceChildren();
+  if (!materials.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = activeRole === "guru"
+      ? "Belum ada materi. Tambahkan materi melalui formulir di atas."
+      : "Belum ada materi yang tersedia.";
+    list.appendChild(empty);
+    return;
+  }
 
-          const empty = document.createElement("div");
-          empty.className = "empty-state";
-          empty.textContent =
-            "Materi belum dapat dimuat. Periksa koneksi dan Firestore Security Rules.";
+  materials.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "material-card";
 
-          $("daftarMateri").appendChild(empty);
-          $("materialCount").textContent = "Gagal memuat materi";
-        }
-      );
+    const tag = document.createElement("span");
+    tag.className = "material-tag";
+    tag.textContent = "MATERI PEMBELAJARAN";
+
+    const title = document.createElement("h3");
+    title.textContent = item.judul || "Tanpa judul";
+
+    const desc = document.createElement("p");
+    desc.textContent = item.deskripsi || "";
+
+    const author = document.createElement("p");
+    author.textContent = "Dibuat oleh: " + (item.pembuat || "Guru");
+
+    card.append(tag, title, desc, author);
+
+    const actions = document.createElement("div");
+    actions.className = "material-actions";
+
+    const url = safeUrl(item.link || "");
+
+    if (url) {
+      const open = document.createElement("a");
+      open.className = "open-material";
+      open.href = url;
+      open.target = "_blank";
+      open.rel = "noopener noreferrer";
+      open.textContent = "Buka Materi ↗";
+      actions.appendChild(open);
     }
 
-    function safeExternalUrl(value) {
-      try {
-        const url = new URL(value);
+    const isOwner = activeUser && item.ownerUid === activeUser.uid;
 
-        if (url.protocol === "https:" || url.protocol === "http:") {
-          return url.href;
-        }
-      } catch (_) {}
-
-      return null;
+    if (activeRole === "guru" && isOwner) {
+      const del = document.createElement("button");
+      del.className = "delete-material";
+      del.type = "button";
+      del.textContent = "Hapus";
+      del.addEventListener("click", () => hapusMateri(item.id));
+      actions.appendChild(del);
     }
 
-    function renderMaterials() {
-      const list = $("daftarMateri");
-      list.replaceChildren();
+    if (actions.children.length) card.appendChild(actions);
+    list.appendChild(card);
+  });
+}
 
-      $("materialCount").textContent =
-        `${allMaterials.length} materi tersedia`;
+$("materialForm").addEventListener("submit", async event => {
+  event.preventDefault();
 
-      if (allMaterials.length === 0) {
-        const empty = document.createElement("div");
-        empty.className = "empty-state";
-        empty.textContent =
-          "📚 Belum ada materi. Guru dapat menambahkan materi pertama.";
-        list.appendChild(empty);
-        return;
-      }
+  if (!activeUser || activeRole !== "guru") {
+    $("materialError").textContent = "Login sebagai guru diperlukan.";
+    return;
+  }
 
-      allMaterials.forEach((material) => {
-        const card = document.createElement("article");
-        card.className = "material-card";
+  const judul = $("judulMateri").value.trim();
+  const deskripsi = $("deskripsiMateri").value.trim();
+  const link = safeUrl($("linkMateri").value.trim());
 
-        const badge = document.createElement("span");
-        badge.className = "status-pill";
-        badge.textContent = "Materi Pembelajaran";
-        card.appendChild(badge);
+  if (!judul || !deskripsi || !link) {
+    $("materialError").textContent =
+      "Lengkapi semua kolom dan gunakan tautan HTTP/HTTPS yang valid.";
+    return;
+  }
 
-        const title = document.createElement("h3");
-        title.textContent = material.judul || "Tanpa judul";
-        card.appendChild(title);
+  const button = $("saveMaterialButton");
+  button.disabled = true;
+  button.textContent = "Menyimpan...";
+  $("materialError").textContent = "";
 
-        const description = document.createElement("p");
-        description.textContent =
-          material.deskripsi || "Tidak ada deskripsi.";
-        card.appendChild(description);
-
-        const meta = document.createElement("div");
-        meta.className = "material-meta";
-        meta.textContent = `Dibuat oleh: ${material.pembuat || "Guru"}`;
-        card.appendChild(meta);
-
-        const actions = document.createElement("div");
-        actions.className = "material-actions";
-
-        const validUrl = safeExternalUrl(material.link || "");
-
-        if (validUrl) {
-          const link = document.createElement("a");
-          link.className = "btn btn-primary btn-small";
-          link.href = validUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.textContent = "Buka Materi ↗";
-          actions.appendChild(link);
-        }
-
-        const isOwner =
-          currentUser && material.ownerUid === currentUser.uid;
-
-        if (currentRole === "guru" && isOwner) {
-          const deleteButton = document.createElement("button");
-          deleteButton.className = "btn btn-danger btn-small";
-          deleteButton.textContent = "Hapus";
-          deleteButton.addEventListener("click", () => {
-            removeMaterial(material.id);
-          });
-          actions.appendChild(deleteButton);
-        }
-
-        if (actions.children.length > 0) {
-          card.appendChild(actions);
-        }
-
-        list.appendChild(card);
-      });
-    }
-
-    $("formMateri").addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      if (!currentUser || currentRole !== "guru") {
-        showMessage(
-          "materialMessage",
-          "Silakan login sebagai guru terlebih dahulu.",
-          "error"
-        );
-        return;
-      }
-
-      const judul = $("judulMateri").value.trim();
-      const deskripsi = $("deskripsiMateri").value.trim();
-      const rawLink = $("linkMateri").value.trim();
-
-      if (!judul || !deskripsi) {
-        showMessage(
-          "materialMessage",
-          "Judul dan deskripsi wajib diisi.",
-          "error"
-        );
-        return;
-      }
-
-      let link = "";
-
-      if (rawLink) {
-        link = safeExternalUrl(rawLink);
-
-        if (!link) {
-          showMessage(
-            "materialMessage",
-            "Link harus menggunakan alamat HTTP atau HTTPS yang valid.",
-            "error"
-          );
-          return;
-        }
-      }
-
-      const button = $("saveMaterialButton");
-      button.disabled = true;
-      button.textContent = "Menyimpan...";
-
-      try {
-        await addDoc(collection(db, "materials"), {
-          judul,
-          deskripsi,
-          link,
-          ownerUid: currentUser.uid,
-          pembuat: currentUser.email || "Guru",
-          createdAt: serverTimestamp()
-        });
-
-        $("formMateri").reset();
-
-        showMessage(
-          "materialMessage",
-          "Materi berhasil disimpan!",
-          "success"
-        );
-      } catch (error) {
-        console.error("Gagal menyimpan materi:", error);
-
-        showMessage(
-          "materialMessage",
-          "Materi gagal disimpan. Pastikan Firestore Security Rules sudah dipublikasikan dan akunmu memiliki akses.",
-          "error"
-        );
-      } finally {
-        button.disabled = false;
-        button.textContent = "+ Simpan Materi";
-      }
+  try {
+    await addDoc(collection(db, "materials"), {
+      judul,
+      deskripsi,
+      link,
+      ownerUid: activeUser.uid,
+      pembuat: activeUser.email || "Guru",
+      createdAt: serverTimestamp()
     });
 
-    async function removeMaterial(materialId) {
-      if (!currentUser || currentRole !== "guru") {
-        return;
-      }
+    $("materialForm").reset();
+    $("materialError").style.color = "#059669";
+    $("materialError").textContent = "Materi berhasil disimpan.";
+  } catch (error) {
+    console.error("Gagal menyimpan materi:", error);
+    $("materialError").style.color = "#dc2626";
+    $("materialError").textContent =
+      "Materi gagal disimpan. Periksa Firestore Security Rules.";
+  } finally {
+    button.disabled = false;
+    button.textContent = "Simpan Materi";
+  }
+});
 
-      const material = allMaterials.find(item => item.id === materialId);
+async function hapusMateri(id) {
+  if (!activeUser || activeRole !== "guru") return;
 
-      if (!material || material.ownerUid !== currentUser.uid) {
-        showMessage(
-          "materialMessage",
-          "Kamu hanya dapat menghapus materi milikmu sendiri.",
-          "error"
-        );
-        return;
-      }
+  const item = materials.find(m => m.id === id);
 
-      if (!confirm("Yakin ingin menghapus materi ini?")) {
-        return;
-      }
+  if (!item || item.ownerUid !== activeUser.uid) {
+    $("materialError").textContent = "Kamu hanya dapat menghapus materi milikmu sendiri.";
+    return;
+  }
 
-      try {
-        await deleteDoc(doc(db, "materials", materialId));
+  if (!confirm("Yakin ingin menghapus materi ini?")) return;
 
-        showMessage(
-          "materialMessage",
-          "Materi berhasil dihapus.",
-          "success"
-        );
-      } catch (error) {
-        console.error("Gagal menghapus materi:", error);
+  try {
+    await deleteDoc(doc(db, "materials", id));
+    $("materialError").style.color = "#059669";
+    $("materialError").textContent = "Materi berhasil dihapus.";
+  } catch (error) {
+    console.error("Gagal menghapus materi:", error);
+    $("materialError").style.color = "#dc2626";
+    $("materialError").textContent =
+      "Materi gagal dihapus. Periksa Firestore Security Rules.";
+  }
+}
 
-        showMessage(
-          "materialMessage",
-          "Materi gagal dihapus. Periksa hak akses akun dan Firestore Security Rules.",
-          "error"
-        );
-      }
+// Pulihkan sesi guru saat halaman dibuka ulang.
+onAuthStateChanged(auth, async user => {
+  if (!user) {
+    if (activeRole === "guru") {
+      clearSession();
+      showPage("home");
     }
+    return;
+  }
 
-    // Memulihkan sesi guru jika halaman dimuat ulang.
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        if (currentRole === "guru") {
-          clearSession();
-          showSection("home");
-        }
-        return;
-      }
+  try {
+    await getRole(user);
+    activeUser = user;
+    activeRole = "guru";
+    studentName = "";
+    buildDashboard();
+    startMaterialsListener();
+  } catch (error) {
+    console.error("Sesi guru tidak dapat dipulihkan:", error);
+    await signOut(auth).catch(() => {});
+    clearSession();
+    showPage("home");
+  }
+});
 
-      try {
-        const role = await getUserRole(user);
-
-        currentUser = user;
-        currentRole = "guru";
-
-        $("welcomeTitle").textContent =
-          `Selamat datang, ${user.email || "Guru"}!`;
-
-        $("welcomeDesc").textContent =
-          "Kelola materi pembelajaran ADALUANG melalui dashboard guru.";
-
-        $("dashboardBadge").textContent =
-          role === "admin" ? "Administrator" : "Ruang Guru";
-
-        $("teacherFeature").classList.remove("hidden");
-
-        setHeader(true, role === "admin" ? "Admin" : "Guru");
-
-        subscribeMaterials();
-      } catch (error) {
-        console.error("Pemeriksaan sesi gagal:", error);
-        await signOut(auth).catch(() => {});
-        clearSession();
-        showSection("home");
-      }
-    });
-
-    // Tampilan awal
-    showSection("home");
-  </script>
+showPage("home");
+</script>
 </body>
 </html>
-```
