@@ -1,1175 +1,614 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#172554">
-<title>ADALUANG | Ayo Dalami Peluang</title>
- 
+<title>ADALUANG — Ayo Dalami Peluang</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
- 
 :root {
-  --navy: #172554;
-  --blue: #3b82f6;
-  --purple: #8b5cf6;
-  --teal: #14b8a6;
-  --muted: #64748b;
+  --purple:#6c4ce4;
+  --purple-dark:#4930b0;
+  --pink:#ff82b2;
+  --yellow:#ffd66b;
+  --blue:#8bd8f8;
+  --ink:#282344;
+  --muted:#77738e;
+  --paper:#faf9ff;
+  --white:#fff;
+  --border:#e9e5f6;
+  --green:#249b78;
 }
- 
-* { box-sizing: border-box; }
+* {box-sizing:border-box}
 body {
-  margin: 0; min-height: 100vh; font-family: 'Nunito', sans-serif;
-  color: var(--navy);
-  background: radial-gradient(ellipse at 5% 10%, #dbeafe 0, transparent 40%),
-              radial-gradient(ellipse at 95% 90%, #ede9fe 0, transparent 40%), #f8fafc;
+  margin:0;
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
 }
-button, input, textarea { font: inherit; }
-button { cursor: pointer; }
-button:disabled { opacity: .6; cursor: not-allowed; }
- 
+button,input,select {font:inherit}
+button {cursor:pointer}
+button:focus-visible,input:focus-visible {
+  outline:3px solid #b8a8ff;
+  outline-offset:2px;
+}
+.hidden {display:none!important}
 .topbar {
-  max-width: 1120px; margin: auto; padding: 22px 28px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:17px 6%;background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:5;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
-.logo {
-  width: 48px; height: 48px; display: grid; place-items: center; border-radius: 16px;
-  color: white; font-size: 25px; font-weight: 900;
-  background: linear-gradient(135deg, var(--blue), var(--purple));
-  box-shadow: 0 7px 18px #6366f140;
+.brand {display:flex;align-items:center;gap:10px;font-weight:900}
+.brand-icon {
+  width:42px;height:42px;border-radius:14px;
+  background:var(--purple);color:#fff;
+  display:grid;place-items:center;font-size:23px;
 }
-.brand-name { font-weight: 900; font-size: 22px; letter-spacing: 1.5px; }
-.brand-sub { color: var(--muted); font-size: 11px; letter-spacing: .5px; }
-.pill {
-  background: white; border: 1px solid #e2e8f0; border-radius: 30px;
-  padding: 9px 15px; font-size: 12px; font-weight: 800;
-}
-main { max-width: 1050px; margin: auto; padding: 22px 24px 50px; }
- 
+.brand small {display:block;font-size:11px;color:var(--muted);font-weight:600}
+.top-actions {display:flex;gap:9px}
+.container {max-width:1100px;margin:auto;padding:35px 22px 60px}
 .hero {
-  display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 30px;
-  background: white; padding: 42px; border-radius: 30px; border: 1px solid #e5eaf5;
-  box-shadow: 0 18px 50px #1725540a; overflow: hidden; position: relative;
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:32px;align-items:center;padding:24px 0 38px;
 }
 .eyebrow {
-  display: inline-block; background: #eff6ff; color: #2563eb; border-radius: 30px;
-  padding: 8px 13px; font-size: 12px; font-weight: 900; letter-spacing: .6px;
+  color:var(--purple);font-size:12px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;
 }
-h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.12; letter-spacing: -1.5px; margin: 20px 0 14px; }
-.gradient-text {
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  color: transparent; background-clip: text; -webkit-background-clip: text;
+h1 {font-size:clamp(34px,5vw,57px);line-height:1.08;margin:14px 0}
+h2 {margin:0 0 10px}
+p {line-height:1.65}
+.muted {color:var(--muted)}
+.hero p {max-width:530px;color:var(--muted)}
+.hero-art {
+  min-height:260px;border-radius:32px;background:#eee9ff;
+  display:grid;place-items:center;position:relative;overflow:hidden;
 }
-.hero-desc { max-width: 470px; color: var(--muted); line-height: 1.8; font-size: 15px; }
-.art { min-height: 250px; display: grid; place-items: center; position: relative; }
 .orbit {
-  width: 235px; height: 235px; border-radius: 50%;
-  background: linear-gradient(135deg, #dbeafe, #ede9fe, #ccfbf1);
-  display: grid; place-items: center; position: relative;
+  width:205px;height:205px;border:2px dashed #a594f4;
+  border-radius:50%;display:grid;place-items:center;
+  position:relative;
 }
-.chart-card {
-  width: 170px; padding: 22px 20px; background: white; border-radius: 22px;
-  box-shadow: 0 15px 35px #17255420; transform: rotate(-5deg);
+.orbit-center {
+  width:110px;height:110px;border-radius:30px;
+  background:var(--purple);color:white;display:grid;place-items:center;
+  font-size:47px;transform:rotate(-8deg);
 }
-.chart-title { font-size: 12px; font-weight: 900; margin-bottom: 17px; }
-.bars {
-  height: 85px; display: flex; align-items: end; justify-content: center;
-  gap: 10px; border-bottom: 2px solid #dbeafe;
-}
-.bar { width: 22px; border-radius: 7px 7px 2px 2px; }
-.b1 { height: 35%; background: #60a5fa; }
-.b2 { height: 70%; background: #818cf8; }
-.b3 { height: 50%; background: #c084fc; }
-.b4 { height: 95%; background: #2dd4bf; }
 .float {
-  position: absolute; background: white; border-radius: 15px; padding: 13px 16px;
-  font-weight: 900; box-shadow: 0 8px 25px #17255412;
+  position:absolute;width:57px;height:57px;border-radius:18px;
+  display:grid;place-items:center;font-size:26px;
+  box-shadow:0 8px 20px #30205c15;
 }
-.float.one { top: 14px; right: 0; color: #7c3aed; }
-.float.two { bottom: 10px; left: 0; color: #0d9488; }
- 
-.section-head { margin: 38px 0 20px; text-align: center; }
-.section-head h2 { font-size: 26px; margin: 0 0 7px; }
-.section-head p { color: var(--muted); margin: 0; font-size: 14px; }
-.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.role-card {
-  border: 1px solid #e2e8f0; background: white; border-radius: 24px;
-  padding: 25px; text-align: left; transition: transform .2s, box-shadow .2s;
+.f1 {background:var(--yellow);top:20px;left:13%}
+.f2 {background:var(--pink);top:34px;right:13%}
+.f3 {background:var(--blue);bottom:25px;left:20%}
+.f4 {background:#c6f0d9;bottom:22px;right:18%}
+.card-grid {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;margin-top:15px;
 }
-.role-card:hover { transform: translateY(-5px); box-shadow: 0 16px 32px #17255412; }
+.card {
+  background:#fff;border:1px solid var(--border);
+  border-radius:23px;padding:25px;
+  box-shadow:0 8px 28px #34215c08;
+}
 .role-icon {
-  width: 58px; height: 58px; display: grid; place-items: center;
-  border-radius: 18px; font-size: 29px; margin-bottom: 18px;
+  width:55px;height:55px;border-radius:17px;
+  display:grid;place-items:center;font-size:27px;margin-bottom:17px;
 }
-.teacher-icon { background: #dbeafe; }
-.student-icon { background: #ccfbf1; }
-.role-card h3 { font-size: 22px; margin: 0 0 8px; }
-.role-card p { font-size: 13px; line-height: 1.7; color: var(--muted); min-height: 44px; }
-.role-card button, .primary-btn {
-  width: 100%; border: 0; padding: 14px; border-radius: 13px; color: white;
-  font-weight: 900; margin-top: 10px; transition: filter .2s;
+.teacher-color {background:#eee8ff}
+.student-color {background:#fff0f6}
+.btn {
+  border:0;border-radius:13px;padding:12px 18px;
+  font-weight:750;transition:.15s;
 }
-.role-card button:hover, .primary-btn:hover { filter: brightness(.94); }
-.teacher-btn { background: linear-gradient(100deg, #3b82f6, #6366f1); }
-.student-btn { background: linear-gradient(100deg, #0d9488, #14b8a6); }
- 
-.panel {
-  max-width: 460px; margin: 30px auto; background: white; padding: 30px;
-  border-radius: 25px; border: 1px solid #e2e8f0; box-shadow: 0 18px 45px #17255410;
+.btn:hover {filter:brightness(.97);transform:translateY(-1px)}
+.primary {background:var(--purple);color:#fff}
+.secondary {background:#f0edff;color:var(--purple-dark)}
+.outline {background:#fff;border:1px solid var(--border);color:var(--ink)}
+.danger {background:#fff0f0;color:#b83e4b}
+.full {width:100%}
+.field {margin:16px 0}
+.field label {display:block;font-weight:700;font-size:13px;margin-bottom:8px}
+.field input,.field select {
+  width:100%;padding:13px 14px;border:1px solid #ded9ef;
+  border-radius:12px;background:white;color:var(--ink);
 }
-.panel.wide { max-width: 850px; }
-.panel-head { text-align: center; }
-.panel-head .role-icon { margin: 0 auto 15px; }
-.panel-head h2 { margin: 0 0 8px; font-size: 27px; }
-.panel-head p { margin: 0 0 22px; color: var(--muted); font-size: 13px; line-height: 1.7; }
-label { display: block; font-weight: 800; font-size: 13px; margin: 15px 0 8px; }
-input, textarea {
-  width: 100%; border: 1px solid #cbd5e1; border-radius: 12px;
-  padding: 14px; outline: none; background: #f8fafc;
-}
-textarea { min-height: 100px; resize: vertical; }
-input:focus, textarea:focus { border-color: #818cf8; box-shadow: 0 0 0 3px #818cf822; }
-.error { color: #dc2626; font-size: 13px; margin-top: 12px; min-height: 20px; overflow-wrap: anywhere; }
-.success { color: #059669; font-size: 13px; margin-top: 12px; min-height: 20px; }
-.back-btn {
-  width: 100%; padding: 12px; border: 0; background: #f1f5f9; color: #475569;
-  border-radius: 12px; margin-top: 10px; font-weight: 800;
-}
+.field input:focus {border-color:var(--purple)}
+.form-box {max-width:470px;margin:25px auto}
+.form-box .card {padding:28px}
+.back {margin-bottom:18px}
 .notice {
-  background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412;
-  border-radius: 12px; padding: 12px; font-size: 12px; line-height: 1.6; margin-top: 17px;
+  padding:13px 15px;border-radius:12px;
+  background:#f0edff;color:#51408f;font-size:13px;
 }
-.welcome-icon {
-  width: 75px; height: 75px; border-radius: 23px; display: grid; place-items: center;
-  font-size: 36px; margin: 0 auto 20px; background: linear-gradient(135deg, #dbeafe, #ede9fe);
+.status {
+  padding:5px 9px;border-radius:99px;background:#e4f7ee;
+  color:#167b59;font-size:11px;font-weight:800;
 }
-.dashboard-links { display: grid; gap: 10px; margin-top: 20px; }
-.dashboard-item { padding: 18px; border: 1px solid #e2e8f0; border-radius: 14px; background: #f8fafc; }
-.dashboard-item h3 { margin: 0 0 6px; font-size: 17px; }
-.dashboard-item p { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
-.menu-btn {
-  width: 100%; padding: 12px; border: 0; background: #eaf0ff;
-  color: #3157a4; border-radius: 10px; font-weight: 900;
+.dashboard-head {
+  display:flex;align-items:center;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;margin-bottom:24px;
 }
-.menu-btn:hover { background: #dbe7ff; }
-.page-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-.secondary-btn {
-  border: 0; padding: 11px 14px; border-radius: 10px;
-  background: #eaf0ff; color: #3157a4; font-weight: 900;
+.stats {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;margin:20px 0;
 }
-.material-form { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin: 20px 0; }
-.material-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
-.material-card { border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; overflow-wrap: anywhere; }
-.material-card h3 { margin: 10px 0; }
-.material-card p { color: var(--muted); font-size: 13px; white-space: pre-wrap; }
-.material-tag { color: #2563eb; background: #eff6ff; border-radius: 7px; padding: 5px 8px; font-size: 11px; font-weight: 900; }
-.material-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-.material-actions a, .material-actions button {
-  text-decoration: none; border: 0; border-radius: 9px; padding: 10px 12px;
-  font-weight: 900; font-size: 12px;
+.stat {background:white;border:1px solid var(--border);border-radius:18px;padding:20px}
+.stat strong {display:block;font-size:29px;margin-top:8px}
+.section-title {margin:28px 0 13px}
+.class-item {
+  padding:17px 0;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
-.open-material { background: #3157a4; color: white; }
-.delete-material { background: #fee2e2; color: #b91c1c; }
-.class-code { font-size: 20px; font-weight: 900; letter-spacing: 2px; color: #0f766e; }\n.empty-state {
-  grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 28px;
-  border: 1px dashed #cbd5e1; border-radius: 14px;
+.class-item:last-child {border-bottom:0}
+.class-code {
+  font-size:20px;letter-spacing:2px;font-weight:900;color:var(--purple);
 }
-.admin-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
-.admin-stat { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 15px; padding: 16px; }
-.admin-stat strong { display: block; font-size: 25px; color: #3157a4; }
-.admin-stat span { font-size: 12px; color: #64748b; }
-.teacher-row { border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; margin: 12px 0; overflow-wrap: anywhere; }
-.teacher-row h3 { margin: 0 0 6px; }
-.teacher-row p { color: #64748b; font-size: 13px; margin: 6px 0; }
-.teacher-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.teacher-actions button { border: 0; padding: 10px 13px; border-radius: 9px; font-weight: 800; }
-.approve-btn { background: #dcfce7; color: #166534; }
-.reject-btn { background: #fee2e2; color: #b91c1c; }
-.disable-btn { background: #fef3c7; color: #92400e; }
-.pending-tag, .approved-tag, .rejected-tag, .disabled-tag {
-  display: inline-block; border-radius: 7px; padding: 5px 8px; font-size: 11px; font-weight: 900;
+.empty {
+  padding:30px 15px;text-align:center;
+  background:#fff;border:1px dashed #d8d0ef;border-radius:18px;
+  color:var(--muted);
 }
-.pending-tag { background: #fef3c7; color: #92400e; }
-.approved-tag { background: #dcfce7; color: #166534; }
-.rejected-tag { background: #fee2e2; color: #991b1b; }
-.disabled-tag { background: #e2e8f0; color: #334155; }
-footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px; }
-.hidden { display: none !important; }
- 
-@media (max-width: 700px) {
-  .topbar { padding: 16px; }
-  .brand-name { font-size: 19px; }
-  .pill { font-size: 10px; padding: 8px; }
-  main { padding: 12px 16px 35px; }
-  .hero { grid-template-columns: 1fr; padding: 28px 23px; gap: 8px; }
-  .hero h1 { font-size: 37px; }
-  .art { min-height: 235px; }
-  .orbit { width: 205px; height: 205px; }
-  .roles { grid-template-columns: 1fr; }
-  .role-card p { min-height: 0; }
-  .section-head h2 { font-size: 23px; }
-  .panel { padding: 24px 20px; }
-  .material-list { grid-template-columns: 1fr; }
-  .admin-stats { grid-template-columns: 1fr; }
+footer {text-align:center;color:var(--muted);font-size:12px;padding:25px}
+.toast {
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:#282344;color:white;padding:12px 18px;
+  border-radius:12px;z-index:20;box-shadow:0 8px 25px #0002;
+  max-width:90%;text-align:center;
+}
+@media(max-width:720px) {
+  .hero {grid-template-columns:1fr;padding-top:10px}
+  .hero-art {min-height:220px}
+  .card-grid {grid-template-columns:1fr}
+  .stats {grid-template-columns:1fr}
+  .topbar {padding:13px 5%}
+  .container {padding:25px 17px 45px}
+  .class-item {align-items:flex-start;flex-direction:column}
 }
 </style>
 </head>
- 
 <body>
+
 <header class="topbar">
   <div class="brand">
-    <div class="logo">A</div>
+    <div class="brand-icon">∑</div>
     <div>
-      <div class="brand-name">ADALUANG</div>
-      <div class="brand-sub">AYO DALAMI PELUANG</div>
+      <div>ADALUANG</div>
+      <small>AYO DALAMI PELUANG</small>
     </div>
   </div>
-  <div class="pill">✨ SMA / MA</div>
+  <div class="top-actions">
+    <button class="btn outline" id="homeButton" onclick="goHome()">Beranda</button>
+    <button class="btn secondary hidden" id="logoutButton" onclick="logout()">Keluar</button>
+  </div>
 </header>
- 
-<main>
-  <section id="home">
+
+<main class="container">
+
+  <!-- BERANDA -->
+  <section id="homePage">
     <div class="hero">
       <div>
-        <span class="eyebrow">✦ BELAJAR • EKSPLORASI • TEMUKAN</span>
-        <h1>Angka punya cerita.<br><span class="gradient-text">Ayo temukan!</span></h1>
-        <p class="hero-desc">
-          Selamat datang di ADALUANG — Ayo Dalami Peluang. Pahami konsep, coba eksperimen, dan uji
-          kemampuanmu dengan cara yang lebih menyenangkan.
+        <div class="eyebrow">Ruang belajar matematika</div>
+        <h1>Belajar Peluang,<br><span style="color:var(--purple)">Buka Kemungkinan!</span></h1>
+        <p>
+          Selamat datang di ADALUANG. Ruang belajar untuk guru dan murid
+          dengan pengalaman belajar yang interaktif, menyenangkan, dan terarah.
+        </p>
+        <button class="btn primary" onclick="showLogin('murid')">Mulai Belajar →</button>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi simbol matematika dan peluang">
+        <div class="orbit">
+          <div class="orbit-center">%</div>
+        </div>
+        <div class="float f1">🎲</div>
+        <div class="float f2">✦</div>
+        <div class="float f3">⅓</div>
+        <div class="float f4">?</div>
+      </div>
+    </div>
+
+    <div class="eyebrow">Pilih ruangmu</div>
+    <h2>Mulai dari sini</h2>
+    <div class="card-grid">
+      <article class="card">
+        <div class="role-icon teacher-color">👩‍🏫</div>
+        <h2>Ruang Guru</h2>
+        <p class="muted">Buat kelas, bagikan kode kelas, dan pantau murid serta hasil belajarnya.</p>
+        <button class="btn primary full" onclick="showLogin('guru')">Masuk sebagai Guru</button>
+      </article>
+      <article class="card">
+        <div class="role-icon student-color">🎒</div>
+        <h2>Ruang Murid</h2>
+        <p class="muted">Gabung ke kelas menggunakan kode yang diberikan oleh guru.</p>
+        <button class="btn secondary full" onclick="showLogin('murid')">Masuk sebagai Murid</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="loginPage" class="hidden">
+    <div class="form-box">
+      <button class="btn outline back" onclick="goHome()">← Kembali</button>
+      <div class="card">
+        <div class="eyebrow" id="loginEyebrow">ADALUANG</div>
+        <h2 id="loginTitle">Masuk ke akun</h2>
+        <p class="muted" id="loginDescription">Masukkan informasi akunmu.</p>
+
+        <form id="loginForm">
+          <div class="field">
+            <label for="userName">Nama lengkap</label>
+            <input id="userName" required maxlength="70" placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="field">
+            <label for="userEmail">Email</label>
+            <input id="userEmail" type="email" required placeholder="nama@email.com">
+          </div>
+          <div class="field">
+            <label for="userPassword">Kata sandi</label>
+            <input id="userPassword" type="password" required minlength="4" placeholder="Masukkan kata sandi">
+          </div>
+          <div class="field hidden" id="classCodeField">
+            <label for="joinCode">Kode kelas dari guru</label>
+            <input id="joinCode" maxlength="10" placeholder="Contoh: AB12CD">
+          </div>
+          <button class="btn primary full" id="loginSubmit" type="submit">Masuk</button>
+        </form>
+
+        <p class="muted" style="font-size:12px;margin-bottom:0">
+          Demo antarmuka: akun disimpan di browser ini. Login belum memakai
+          autentikasi server, jadi jangan gunakan kata sandi asli.
         </p>
       </div>
-      <div class="art">
-        <div class="orbit">
-          <div class="chart-card">
-            <div class="chart-title">DATA INSIGHT ↗</div>
-            <div class="bars">
-              <div class="bar b1"></div><div class="bar b2"></div>
-              <div class="bar b3"></div><div class="bar b4"></div>
-            </div>
-          </div>
+    </div>
+  </section>
+
+  <!-- RUANG GURU -->
+  <section id="teacherPage" class="hidden">
+    <div class="dashboard-head">
+      <div>
+        <div class="eyebrow">ADALUANG / RUANG GURU</div>
+        <h1 style="font-size:34px" id="teacherGreeting">Halo, Guru!</h1>
+        <p class="muted">Kelola kelas dan pantau anggota kelasmu.</p>
+      </div>
+      <span class="status">Ruang Guru</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="muted">Jumlah kelas</span><strong id="classCount">0</strong></div>
+      <div class="stat"><span class="muted">Jumlah murid</span><strong id="studentCount">0</strong></div>
+      <div class="stat"><span class="muted">Materi</span><strong>Segera</strong></div>
+    </div>
+
+    <div class="card">
+      <h2>Buat kelas baru</h2>
+      <p class="muted">Buat kelas, lalu bagikan kode uniknya kepada murid.</p>
+      <form id="createClassForm">
+        <div class="field">
+          <label for="className">Nama kelas</label>
+          <input id="className" required maxlength="60" placeholder="Contoh: Peluang X-1">
         </div>
-        <div class="float one">📊 Data</div>
-        <div class="float two">🎲 Peluang</div>
-      </div>
-    </div>
- 
-    <div class="section-head">
-      <h2>Siap untuk mulai belajar?</h2>
-      <p>Pilih ruang belajar sesuai peranmu.</p>
-    </div>
- 
-    <div class="roles">
-      <article class="role-card">
-        <div class="role-icon teacher-icon">👩‍🏫</div>
-        <h3>Ruang Guru</h3>
-        <p>Buat kelas, bagikan kode kelas, dan pantau perkembangan murid.</p>
-        <button class="teacher-btn" onclick="chooseRole('guru')">Masuk sebagai Guru ↗</button>
-      </article>
-      <article class="role-card">
-        <div class="role-icon student-icon">🎓</div>
-        <h3>Ruang Murid</h3>
-        <p>Gabung ke kelas, pelajari materi, dan kerjakan soal Analisis Data dan Peluang.</p>
-        <button class="student-btn" onclick="chooseRole('murid')">Masuk sebagai Murid ↗</button>
-      </article>
-    </div>
-  </section>
- 
-  <section id="login" class="panel hidden">
-    <div class="panel-head">
-      <div id="loginIcon" class="role-icon teacher-icon">🔐</div>
-      <h2 id="loginTitle">Ruang Guru</h2>
-      <p id="loginDesc">Masukkan data akun untuk melanjutkan.</p>
-    </div>
- 
-    <form id="loginForm">
-      <div id="nameField">
-        <label id="nameLabel" for="fullName">Email akun</label>
-        <input id="fullName" type="email" placeholder="nama@email.com" maxlength="254" autocomplete="username" required>
-      </div>
-      <div id="passwordField">
-        <label id="codeLabel" for="accessCode">Password</label>
-        <input id="accessCode" type="password" placeholder="Masukkan password" autocomplete="current-password" required>
-      </div>
-      <button class="primary-btn teacher-btn" id="loginButton" type="submit">Masuk →</button>
-    </form>
- 
-    <div id="error" class="error" role="alert"></div>
-    <div id="registerMessage" class="success" role="status"></div>
- 
-    <div id="registerBox" class="hidden">
-      <div class="notice">
-        Pendaftaran guru akan menunggu persetujuan admin. Setelah diterima,
-        kamu dapat login menggunakan email dan password yang didaftarkan.
-      </div>
-      <form id="registerForm">
-        <label for="registerName">Nama lengkap</label>
-        <input id="registerName" type="text" maxlength="80" autocomplete="name" required placeholder="Nama lengkap guru">
- 
-        <label for="registerEmail">Email</label>
-        <input id="registerEmail" type="email" maxlength="254" autocomplete="email" required placeholder="nama@email.com">
- 
-        <label for="registerPassword">Password (minimal 6 karakter)</label>
-        <input id="registerPassword" type="password" minlength="6" autocomplete="new-password" required placeholder="Buat password">
- 
-        <label for="registerPassword2">Ulangi password</label>
-        <input id="registerPassword2" type="password" minlength="6" autocomplete="new-password" required placeholder="Ulangi password">
- 
-        <button id="registerSubmit" class="primary-btn teacher-btn" type="submit">Kirim Pendaftaran →</button>
+        <button class="btn primary" type="submit">＋ Buat Kelas</button>
       </form>
     </div>
- 
-    <button id="registerButton" class="back-btn" type="button">Daftar sebagai Guru</button>
-    <button class="back-btn" onclick="goHome()" type="button">← Kembali ke Beranda</button>
-  </section>
- 
-  <section id="dashboard" class="panel wide hidden">
-    <div class="welcome-icon" id="welcomeIcon">🎓</div>
-    <div class="panel-head">
-      <h2 id="welcomeTitle">Selamat datang!</h2>
-      <p id="welcomeDesc"></p>
+
+    <h2 class="section-title">Kelas Saya</h2>
+    <div class="card" id="teacherClasses"></div>
+    <div class="notice" style="margin-top:18px">
+      Pemantauan nilai dan pengerjaan kuis akan diaktifkan setelah fitur materi,
+      soal, dan penyimpanan data selesai dikembangkan.
     </div>
-    <div class="page-heading">
-      <h2>Menu Pembelajaran</h2>
-      <button class="secondary-btn" onclick="logout()">Keluar ↗</button>
-    </div>
-    <div id="dashboardLinks" class="dashboard-links"></div>
   </section>
- 
-  <section id="approvalPage" class="panel wide hidden">
-    <div class="page-heading">
+
+  <!-- RUANG MURID -->
+  <section id="studentPage" class="hidden">
+    <div class="dashboard-head">
       <div>
-        <span class="eyebrow">ADMIN ADALUANG</span>
-        <h2>Persetujuan Guru</h2>
-        <p style="color:var(--muted)">Periksa pendaftaran guru yang masuk.</p>
+        <div class="eyebrow">ADALUANG / RUANG MURID</div>
+        <h1 style="font-size:34px" id="studentGreeting">Halo, Murid!</h1>
+        <p class="muted">Gabung ke kelas dan siapkan dirimu untuk belajar.</p>
       </div>
-      <button class="secondary-btn" onclick="kembaliDashboard()">← Dashboard</button>
+      <span class="status">Ruang Murid</span>
     </div>
-    <div id="pendingTeachers"><div class="empty-state">Memuat pendaftaran...</div></div>
-  </section>
- 
-  <section id="teacherManagementPage" class="panel wide hidden">
-    <div class="page-heading">
-      <div>
-        <span class="eyebrow">ADMIN ADALUANG</span>
-        <h2>Manajemen Guru</h2>
-        <p style="color:var(--muted)">Kelola status akses guru ADALUANG.</p>
-      </div>
-      <button class="secondary-btn" onclick="kembaliDashboard()">← Dashboard</button>
-    </div>
-    <div class="admin-stats">
-      <div class="admin-stat"><strong id="countApproved">0</strong><span>Guru aktif</span></div>
-      <div class="admin-stat"><strong id="countPending">0</strong><span>Menunggu persetujuan</span></div>
-      <div class="admin-stat"><strong id="countRejected">0</strong><span>Ditolak / dinonaktifkan</span></div>
-    </div>
-    <div id="allTeachers"><div class="empty-state">Memuat daftar guru...</div></div>
-  </section>
- 
- 
-  <section id="classPage" class="panel wide hidden">
-    <div class="page-heading">
-      <div>
-        <span class="eyebrow">RUANG GURU</span>
-        <h2>Kelas Saya</h2>
-        <p style="color:var(--muted)">Buat kelas dan bagikan kode kepada murid.</p>
-      </div>
-      <button class="secondary-btn" onclick="kembaliDashboard()">← Dashboard</button>
-    </div>
-    <div class="material-form">
-      <h3>＋ Buat Kelas</h3>
-      <form id="classForm">
-        <label for="className">Nama kelas</label>
-        <input id="className" maxlength="100" required placeholder="Contoh: X-1">
-        <button id="createClassButton" class="primary-btn teacher-btn" type="submit">Buat Kelas</button>
+
+    <div class="card">
+      <h2>Gabung ke kelas</h2>
+      <p class="muted">Masukkan kode kelas yang dibagikan oleh gurumu.</p>
+      <form id="joinClassForm">
+        <div class="field">
+          <label for="studentJoinCode">Kode kelas</label>
+          <input id="studentJoinCode" required maxlength="10" placeholder="Masukkan kode kelas">
+        </div>
+        <button class="btn primary" type="submit">Gabung Kelas</button>
       </form>
-      <div id="classMessage" class="success" role="status"></div>
     </div>
-    <h3>Daftar Kelas</h3>
-    <div id="teacherClasses" class="dashboard-links"><div class="empty-state">Memuat kelas...</div></div>
-  </section>
- 
-  <section id="classMonitorPage" class="panel wide hidden">
-    <div class="page-heading">
-      <div>
-        <span class="eyebrow">PEMANTAUAN KELAS</span>
-        <h2 id="monitorClassTitle">Aktivitas Murid</h2>
-        <p id="monitorClassCode" style="color:var(--muted)"></p>
-      </div>
-      <button class="secondary-btn" onclick="bukaKelasGuru()">← Kembali ke Kelas</button>
+
+    <h2 class="section-title">Kelas yang Diikuti</h2>
+    <div class="card" id="studentClasses"></div>
+
+    <div class="notice" style="margin-top:18px">
+      Ruang materi dan latihan Peluang akan tersedia setelah tahap ini selesai.
     </div>
-    <h3>Hasil pengerjaan murid</h3>
-    <div id="classSubmissions"><div class="empty-state">Pilih kelas untuk melihat hasil.</div></div>
   </section>
- 
-  <section id="materiPage" class="panel wide hidden">
-    <div class="page-heading">
-      <div>
-        <span class="eyebrow">ADALUANG</span>
-        <h2>Materi Pembelajaran</h2>
-        <p style="color:var(--muted)">Konten terpusat ADALUANG — SMA/MA</p>
-      </div>
-      <button class="secondary-btn" onclick="kembaliDashboard()">← Dashboard</button>
-    </div>
-    <h3>Daftar Materi</h3>\n    <p style="color:var(--muted)">Materi ini sama untuk semua guru dan murid, dikelola langsung melalui coding ADALUANG.</p>
-    <p id="jumlahMateri" style="color:var(--muted)">Memuat materi...</p>
-    <div id="daftarMateri" class="material-list"></div>
-  </section>
- 
-  <section id="comingPage" class="panel hidden">
-    <div class="panel-head">
-      <div class="welcome-icon">🚧</div>
-      <h2 id="comingTitle">Fitur berikutnya</h2>
-      <p>Menu ini akan dikembangkan pada tahap berikutnya.</p>
-    </div>
-    <button class="back-btn" onclick="kembaliDashboard()">← Dashboard</button>
-  </section>
+
 </main>
- 
+
 <footer>
-  ADALUANG © 2026 · Analisis Data dan Peluang<br>
-  Belajar matematika dengan cara yang lebih bermakna.
+  ADALUANG · Ayo Dalami Peluang · 2026
 </footer>
- 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-  getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,
-  onAuthStateChanged, signOut
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {
-  getFirestore, doc, getDoc, setDoc, collection, addDoc, deleteDoc,
-  getDocs, updateDoc, onSnapshot, serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
- 
-const firebaseConfig = {
-  apiKey: "AIzaSyDuVGHdk05SzOdTGuXsqfKZZwF1dYsmQDU",
-  authDomain: "adaluang.firebaseapp.com",
-  projectId: "adaluang",
-  storageBucket: "adaluang.firebasestorage.app",
-  messagingSenderId: "970393246155",
-  appId: "1:970393246155:web:e2f6971c49d85624acbe4",
-  measurementId: "G-PNKBBCZLMN"
-};
- 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const STUDENT_ACCESS_CODE = ""; // Login murid menggunakan kode kelas masing-masing.
- 
-let selectedRole = "";
-let activeUser = null;
-let activeRole = null;
-let studentName = "";
-let unsubscribeMaterials = null;
-let unsubscribeUsers = null;
-let unsubscribeSubmissions = null;
-let teacherClasses = [];
-let activeClassId = null;
-let materials = [];
-let teacherProfiles = [];
-let registering = false;
-let sessionCheck = 0;
- 
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+<script>
 const $ = id => document.getElementById(id);
-const PAGE_IDS = [
-  "home", "login", "dashboard", "approvalPage",
-  "teacherManagementPage", "classPage", "classMonitorPage", "materiPage", "comingPage"
-];
- 
-function showPage(id) {
-  PAGE_IDS.forEach(page => $(page).classList.toggle("hidden", page !== id));
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-function showError(message) { $("error").textContent = message || ""; }
-function stopMaterialsListener() {
-  if (unsubscribeMaterials) unsubscribeMaterials();
-  unsubscribeMaterials = null;
-}
-function stopUsersListener() {
-  if (unsubscribeUsers) unsubscribeUsers();
-  unsubscribeUsers = null;
-}
-function clearSession() {
-  stopMaterialsListener();
-  stopUsersListener();
-  if (unsubscribeSubmissions) unsubscribeSubmissions();
-  unsubscribeSubmissions = null;
-  activeClassId = null;
-  teacherClasses = [];
-  activeUser = null;
-  activeRole = null;
-  studentName = "";
-  materials = [];
-  teacherProfiles = [];
-}
-function safeUrl(value) {
+let selectedRole = "murid";
+let currentUser = null;
+
+function readStore(key, fallback) {
   try {
-    const url = new URL(value);
-    return ["https:", "http:"].includes(url.protocol) ? url.href : null;
-  } catch { return null; }
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch {
+    return fallback;
+  }
 }
-function setLoginMode(mode) {
-  const isRegister = mode === "register";
-  $("registerBox").classList.toggle("hidden", !isRegister);
-  $("loginForm").classList.toggle("hidden", isRegister);
-  $("registerButton").textContent = isRegister ? "← Kembali ke Login" : "Daftar sebagai Guru";
-  $("registerMessage").textContent = "";
-  showError("");
+function writeStore(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
 }
- 
-function showRoleForm(role) {
-  selectedRole = role;
-  const isTeacher = role === "guru";
-  $("login").classList.remove("hidden");
-  $("home").classList.add("hidden");
-  $("dashboard").classList.add("hidden");
-  $("approvalPage").classList.add("hidden");
-  $("teacherManagementPage").classList.add("hidden");
-  $("classPage").classList.add("hidden");
-  $("classMonitorPage").classList.add("hidden");
-  $("materiPage").classList.add("hidden");
-  $("comingPage").classList.add("hidden");
- 
-  $("loginTitle").textContent = isTeacher ? "Ruang Guru" : "Ruang Murid";
-  $("loginDesc").textContent = isTeacher
-    ? "Masuk menggunakan akun guru yang telah disetujui admin."
-    : "Masukkan nama dan kode kelas dari guru.";
-  $("loginIcon").textContent = isTeacher ? "👩‍🏫" : "🎓";
-  $("loginIcon").className = "role-icon " + (isTeacher ? "teacher-icon" : "student-icon");
-  $("loginButton").className = "primary-btn " + (isTeacher ? "teacher-btn" : "student-btn");
-  $("loginButton").textContent = isTeacher ? "Masuk ke Ruang Guru →" : "Masuk ke Ruang Murid →";
-  $("nameLabel").textContent = isTeacher ? "Email akun guru" : "Nama lengkap";
-  $("fullName").type = isTeacher ? "email" : "text";
-  $("fullName").placeholder = isTeacher ? "nama@email.com" : "Masukkan nama lengkap";
-  $("fullName").autocomplete = isTeacher ? "username" : "name";
-  $("codeLabel").textContent = isTeacher ? "Password" : "Kode akses";
-  $("accessCode").autocomplete = isTeacher ? "current-password" : "off";
-  $("accessCode").placeholder = isTeacher ? "Masukkan password" : "Masukkan kode akses";
-  $("fullName").value = "";
-  $("accessCode").value = "";
-  $("fullName").required = true;
-  $("accessCode").required = true;
-  $("registerButton").classList.toggle("hidden", !isTeacher);
-  $("registerBox").classList.add("hidden");
-  $("loginForm").classList.remove("hidden");
-  $("registerMessage").textContent = "";
-  showError("");
+function getClasses() {
+  return readStore("adaluang_classes", []);
 }
-window.chooseRole = showRoleForm;
-window.goHome = () => {
-  if (activeUser || activeRole === "murid") showPage("dashboard");
-  else showPage("home");
-};
-window.kembaliDashboard = () => {
-  if (activeUser || activeRole === "murid") showPage("dashboard");
-  else showPage("home");
-};
-$("registerButton").addEventListener("click", () => {
-  if (selectedRole !== "guru") return;
-  setLoginMode($("registerBox").classList.contains("hidden") ? "register" : "login");
-});
- 
-function buildDashboard() {
-  $("welcomeIcon").textContent = activeRole === "admin" ? "🛡️" : activeRole === "guru" ? "👩‍🏫" : "🎓";
-  $("welcomeTitle").textContent = "Halo, " +
-    (activeRole === "murid" ? studentName : (activeUser?.displayName || activeUser?.email || "Pengguna")) + "! 👋";
-  $("welcomeDesc").textContent = activeRole === "admin"
-    ? "Kelola pendaftaran guru dan materi pembelajaran ADALUANG."
-    : activeRole === "guru"
-      ? "Selamat datang di ruang pengelolaan pembelajaran ADALUANG."
-      : "Saatnya menjelajahi dunia Analisis Data dan Peluang.";
- 
-  const links = $("dashboardLinks");
-  links.replaceChildren();
- 
-  const menus = [{
-    ikon: "📚", judul: "Materi",
-    deskripsi: "Materi terpusat ADALUANG dan sama untuk semua pengguna.",
-    aksi: bukaMateri
-  }];
- 
-  if (activeRole === "admin") {
-    menus.push({
-      ikon: "🛡️", judul: "Persetujuan Guru",
-      deskripsi: "Periksa pendaftaran guru dan tentukan persetujuannya.",
-      aksi: () => bukaPengelolaanGuru("approval")
-    });
-    menus.push({
-      ikon: "👩‍🏫", judul: "Manajemen Guru",
-      deskripsi: "Lihat status guru dan aktifkan atau nonaktifkan akses.",
-      aksi: () => bukaPengelolaanGuru("management")
-    });
-  } else if (activeRole === "guru") {
-    menus.push(
-      { ikon: "🏫", judul: "Kelas Saya", deskripsi: "Buat kode kelas dan pantau murid yang bergabung.", aksi: bukaKelasGuru },
-      { ikon: "📊", judul: "Pemantauan Murid", deskripsi: "Pantau hasil pengerjaan murid berdasarkan kelas milikmu.", aksi: bukaKelasGuru }
-    );
-  } else {
-    menus.push(
-      { ikon: "📝", judul: "Soal Latihan", deskripsi: "Kerjakan soal terpusat ADALUANG.", aksi: () => bukaFitur("Soal Latihan") },
-      { ikon: "📊", judul: "Progres Belajar", deskripsi: "Lihat perkembangan pengerjaanmu.", aksi: () => bukaFitur("Progres Belajar") }
-    );
-  }
- 
-  menus.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "dashboard-item";
-    const title = document.createElement("h3");
-    title.textContent = item.ikon + " " + item.judul;
-    const desc = document.createElement("p");
-    desc.textContent = item.deskripsi;
-    const button = document.createElement("button");
-    button.className = "menu-btn";
-    button.type = "button";
-    button.textContent = "Buka Menu →";
-    button.addEventListener("click", item.aksi);
-    card.append(title, desc, button);
-    links.appendChild(card);
-  });
-  showPage("dashboard");
+function getUsers() {
+  return readStore("adaluang_users", []);
 }
- 
-function bukaFitur(nama) {
-  $("comingTitle").textContent = nama;
-  showPage("comingPage");
+function setUsers(users) {
+  writeStore("adaluang_users", users);
 }
- 
-async function getProfile(user) {
-  const snap = await getDoc(doc(db, "users", user.uid));
-  if (!snap.exists()) throw new Error("Profil akun tidak ditemukan di Firestore.");
-  return snap.data();
+function toast(message) {
+  $("toast").textContent = message;
+  $("toast").classList.remove("hidden");
+  clearTimeout(window.toastTimeout);
+  window.toastTimeout = setTimeout(() => $("toast").classList.add("hidden"), 2800);
 }
- 
-async function verifyAccount(user) {
-  const profile = await getProfile(user);
- 
-  if (profile.role === "admin") return { role: "admin", profile };
- 
-  if (profile.role !== "guru") {
-    throw new Error("Akun ini tidak terdaftar sebagai guru atau admin.");
-  }
-  if (profile.status === "pending") {
-    throw new Error("Pendaftaranmu masih menunggu persetujuan admin.");
-  }
-  if (profile.status === "rejected") {
-    throw new Error("Pendaftaran guru ditolak. Hubungi admin jika perlu klarifikasi.");
-  }
-  if (profile.status === "disabled") {
-    throw new Error("Akses akunmu sedang dinonaktifkan oleh admin.");
-  }
-  if (profile.status !== "approved") {
-    throw new Error("Status akun belum valid. Hubungi admin ADALUANG.");
-  }
-  return { role: "guru", profile };
-}
- 
-function authMessage(error) {
-  const messages = {
-    "auth/invalid-credential": "Email atau password salah.",
-    "auth/invalid-email": "Format email tidak valid.",
-    "auth/email-already-in-use": "Email ini sudah terdaftar. Silakan login.",
-    "auth/weak-password": "Password terlalu lemah. Gunakan minimal 6 karakter.",
-    "auth/too-many-requests": "Terlalu banyak percobaan. Coba lagi nanti.",
-    "auth/network-request-failed": "Koneksi internet bermasalah.",
-    "auth/operation-not-allowed": "Aktifkan metode Email/Password di Firebase Authentication.",
-    "permission-denied": "Akses database ditolak. Periksa Firestore Security Rules."
-  };
-  return messages[error.code] || error.message || "Terjadi kesalahan.";
-}
- 
-$("loginForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  showError("");
-  $("registerMessage").textContent = "";
- 
-  const identity = $("fullName").value.trim();
-  const passwordOrCode = $("accessCode").value;
- 
-  if (selectedRole === "murid") {
-    const classCode = passwordOrCode.trim().toUpperCase();
-    if (!identity || !classCode) {
-      showError("Masukkan nama dan kode kelas.");
-      return;
-    }
-    showError("Login murid dengan kode kelas sudah disiapkan pada tampilan, tetapi perlu Firebase Anonymous Authentication dan aturan Firestore untuk mengaktifkan kelas secara aman.");
-    return;
-  }
- 
-  const button = $("loginButton");
-  button.disabled = true;
-  button.textContent = "Memeriksa akun...";
- 
-  try {
-    await signInWithEmailAndPassword(auth, identity, passwordOrCode);
-    // onAuthStateChanged memeriksa status akun sebelum membuka dashboard.
-  } catch (error) {
-    showError(authMessage(error));
-  } finally {
-    button.disabled = false;
-    button.textContent = "Masuk ke Ruang Guru →";
-  }
-});
- 
-$("registerForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  showError("");
-  $("registerMessage").textContent = "";
- 
-  const nama = $("registerName").value.trim();
-  const email = $("registerEmail").value.trim().toLowerCase();
-  const password = $("registerPassword").value;
-  const password2 = $("registerPassword2").value;
- 
-  if (!nama) {
-    showError("Nama lengkap wajib diisi.");
-    return;
-  }
-  if (password.length < 6) {
-    showError("Password minimal 6 karakter.");
-    return;
-  }
-  if (password !== password2) {
-    showError("Konfirmasi password tidak sama.");
-    return;
-  }
- 
-  const button = $("registerSubmit");
-  button.disabled = true;
-  button.textContent = "Mengirim pendaftaran...";
-  registering = true;
- 
-  let createdUser = null;
-  try {
-    const credential = await createUserWithEmailAndPassword(auth, email, password);
-    createdUser = credential.user;
- 
-    await setDoc(doc(db, "users", createdUser.uid), {
-      nama,
-      email,
-      role: "guru",
-      status: "pending",
-      createdAt: serverTimestamp()
-    });
- 
-    await signOut(auth);
-    $("registerForm").reset();
-    setLoginMode("login");
-    $("registerMessage").textContent =
-      "Pendaftaran berhasil dikirim! Tunggu persetujuan admin sebelum login.";
-  } catch (error) {
-    console.error("Pendaftaran gagal:", error);
-    if (createdUser && auth.currentUser) {
-      await signOut(auth).catch(() => {});
-    }
-    showError("Pendaftaran gagal: " + authMessage(error) +
-      " Jika akun sudah terbentuk tetapi profil gagal dibuat, hubungi admin untuk pemeriksaan.");
-  } finally {
-    registering = false;
-    button.disabled = false;
-    button.textContent = "Kirim Pendaftaran →";
-  }
-});
- 
-window.logout = async function() {
-  stopMaterialsListener();
-  stopUsersListener();
-  try {
-    if (auth.currentUser) await signOut(auth);
-  } catch (error) {
-    showError("Gagal keluar: " + authMessage(error));
-    return;
-  }
-  clearSession();
-  selectedRole = "";
-  showPage("home");
-};
- 
-function bukaMateri() {
-  if (activeRole !== "guru" && activeRole !== "admin" && activeRole !== "murid") {
-    showPage("home");
-    return;
-  }
-  $("materialError").textContent = "";
-  showPage("materiPage");
-  renderMaterials();
-}
- 
-function startMaterialsListener() {
-  materials = CENTRAL_MATERIALS;
-  renderMaterials();
-}
- 
-function renderMaterials() {
-  const list = $("daftarMateri");
-  list.replaceChildren();
-  $("jumlahMateri").textContent = materials.length + " materi terpusat tersedia";
- 
-  if (!materials.length) {
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.textContent = "Belum ada materi yang tersedia.";
-    list.appendChild(empty);
-    return;
-  }
- 
-  materials.forEach(item => {
-    const card = document.createElement("article");
-    card.className = "material-card";
-    const tag = document.createElement("span");
-    tag.className = "material-tag";
-    tag.textContent = "MATERI PEMBELAJARAN";
-    const title = document.createElement("h3");
-    title.textContent = item.judul || "Tanpa judul";
-    const desc = document.createElement("p");
-    desc.textContent = item.deskripsi || "";
-    card.append(tag, title, desc);
- 
-    const actions = document.createElement("div");
-    actions.className = "material-actions";
-    const url = safeUrl(item.link || "");
- 
-    if (url) {
-      const open = document.createElement("a");
-      open.className = "open-material";
-      open.href = url;
-      open.target = "_blank";
-      open.rel = "noopener noreferrer";
-      open.textContent = "Buka Materi ↗";
-      actions.appendChild(open);
-    }
-    if (actions.children.length) card.appendChild(actions);
-    list.appendChild(card);
-  });
-}
- 
- 
-// Materi terpusat: konten ini sama untuk semua guru dan murid.
-// Tambahkan/ubah materi langsung pada daftar berikut di dalam coding.
-const CENTRAL_MATERIALS = [
-  { id: "materi-1", judul: "Pengumpulan dan Penyajian Data", deskripsi: "Mengenal jenis data, tabel frekuensi, diagram, dan cara membaca informasi dari data.", link: "https://www.khanacademy.org/math/statistics-probability" },
-  { id: "materi-2", judul: "Ukuran Pemusatan Data", deskripsi: "Mempelajari mean, median, dan modus serta penggunaannya untuk merangkum data.", link: "https://www.khanacademy.org/math/statistics-probability" },
-  { id: "materi-3", judul: "Peluang Suatu Kejadian", deskripsi: "Mengenal ruang sampel, titik sampel, dan peluang suatu kejadian.", link: "https://www.khanacademy.org/math/statistics-probability" }
-];
- 
-function makeClassCode() {
+function makeCode() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "";
-  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  let code;
+  const classes = getClasses();
+  do {
+    code = Array.from({length:6}, () =>
+      chars[Math.floor(Math.random()*chars.length)]
+    ).join("");
+  } while (classes.some(c => c.code === code));
   return code;
 }
- 
-function bukaKelasGuru() {
-  if (activeRole !== "guru" || !activeUser) {
-    alert("Menu kelas hanya tersedia untuk guru yang sudah disetujui.");
+function showPage(pageId) {
+  ["homePage","loginPage","teacherPage","studentPage"].forEach(id =>
+    $(id).classList.toggle("hidden", id !== pageId)
+  );
+  $("logoutButton").classList.toggle("hidden", !currentUser);
+  $("homeButton").classList.toggle("hidden", !!currentUser);
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function goHome() {
+  if (currentUser) {
+    openDashboard();
     return;
   }
-  showPage("classPage");
-  loadTeacherClasses();
+  showPage("homePage");
 }
- 
-async function loadTeacherClasses() {
-  const container = $("teacherClasses");
-  container.replaceChildren();
-  const loading = document.createElement("div");
-  loading.className = "empty-state";
-  loading.textContent = "Memuat kelas...";
-  container.appendChild(loading);
-  try {
-    const snap = await getDocs(collection(db, "classes"));
-    teacherClasses = snap.docs.map(d => ({ id: d.id, ...d.data() }))
-      .filter(c => c.ownerUid === activeUser.uid);
-    renderTeacherClasses();
-  } catch (error) {
-    console.error(error);
-    container.replaceChildren();
-    const message = document.createElement("div");
-    message.className = "empty-state";
-    message.textContent = "Kelas belum dapat dimuat. Firestore Security Rules untuk koleksi classes perlu disiapkan terlebih dahulu.";
-    container.appendChild(message);
-  }
+function showLogin(role) {
+  selectedRole = role;
+  $("loginEyebrow").textContent = role === "guru" ? "RUANG GURU" : "RUANG MURID";
+  $("loginTitle").textContent = role === "guru" ? "Masuk sebagai Guru" : "Masuk sebagai Murid";
+  $("loginDescription").textContent = role === "guru"
+    ? "Masuk untuk membuat dan mengelola kelas."
+    : "Masuk untuk bergabung dengan kelas gurumu.";
+  $("classCodeField").classList.add("hidden");
+  $("userName").value = "";
+  $("userEmail").value = "";
+  $("userPassword").value = "";
+  $("joinCode").value = "";
+  showPage("loginPage");
 }
- 
-function renderTeacherClasses() {
-  const container = $("teacherClasses");
-  container.replaceChildren();
-  if (!teacherClasses.length) {
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.textContent = "Belum ada kelas. Buat kelas pertama untuk mendapatkan kode.";
-    container.appendChild(empty);
-    return;
-  }
-  teacherClasses.forEach(c => {
-    const card = document.createElement("article");
-    card.className = "dashboard-item";
-    const title = document.createElement("h3");
-    title.textContent = "🏫 " + (c.nama || "Kelas tanpa nama");
-    const code = document.createElement("p");
-    code.textContent = "Kode kelas: " + (c.code || "Belum tersedia");
-    const copy = document.createElement("button");
-    copy.className = "menu-btn";
-    copy.textContent = "Salin kode";
-    copy.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(c.code);
-        copy.textContent = "Kode tersalin ✓";
-      } catch {
-        prompt("Salin kode kelas ini:", c.code);
-      }
-    });
-    const monitor = document.createElement("button");
-    monitor.className = "menu-btn";
-    monitor.style.marginTop = "8px";
-    monitor.textContent = "Pantau hasil murid →";
-    monitor.addEventListener("click", () => openClassMonitor(c));
-    card.append(title, code, copy, monitor);
-    container.appendChild(card);
-  });
-}
- 
-$("classForm").addEventListener("submit", async event => {
+$("loginForm").addEventListener("submit", event => {
   event.preventDefault();
-  if (activeRole !== "guru" || !activeUser) return;
-  const nama = $("className").value.trim();
-  if (!nama) return;
-  const button = $("createClassButton");
-  button.disabled = true;
-  $("classMessage").textContent = "";
-  try {
-    const code = makeClassCode();
-    await addDoc(collection(db, "classes"), {
-      nama, code, ownerUid: activeUser.uid, createdAt: serverTimestamp()
-    });
-    $("classForm").reset();
-    $("classMessage").textContent = "Kelas berhasil dibuat. Bagikan kode kelas kepada murid.";
-    await loadTeacherClasses();
-  } catch (error) {
-    console.error(error);
-    $("classMessage").textContent = "Kelas belum bisa dibuat. Aturan akses Firestore untuk classes harus disiapkan sebelum fitur ini aktif.";
-  } finally {
-    button.disabled = false;
+  const name = $("userName").value.trim();
+  const email = $("userEmail").value.trim().toLowerCase();
+  const password = $("userPassword").value;
+
+  if (!name || !email || !password) {
+    toast("Lengkapi semua data terlebih dahulu.");
+    return;
   }
-});
- 
-function openClassMonitor(c) {
-  activeClassId = c.id;
-  $("monitorClassTitle").textContent = "Aktivitas Murid — " + (c.nama || "Kelas");
-  $("monitorClassCode").textContent = "Kode kelas: " + (c.code || "");
-  showPage("classMonitorPage");
-  if (unsubscribeSubmissions) unsubscribeSubmissions();
-  const list = $("classSubmissions");
-  list.replaceChildren();
-  const loading = document.createElement("div");
-  loading.className = "empty-state";
-  loading.textContent = "Memuat hasil pengerjaan...";
-  list.appendChild(loading);
-  unsubscribeSubmissions = onSnapshot(collection(db, "submissions"), snapshot => {
-    list.replaceChildren();
-    const rows = snapshot.docs.map(d => ({ id: d.id, ...d.data() }))
-      .filter(s => s.classId === c.id);
-    if (!rows.length) {
-      const empty = document.createElement("div");
-      empty.className = "empty-state";
-      empty.textContent = "Belum ada hasil pengerjaan untuk kelas ini.";
-      list.appendChild(empty);
+
+  const users = getUsers();
+  let user = users.find(u => u.email === email && u.role === selectedRole);
+
+  if (user) {
+    // Demo saja: kata sandi disimpan secara lokal, bukan praktik aman untuk produksi.
+    if (user.password !== password) {
+      toast("Kata sandi tidak sesuai dengan akun demo ini.");
       return;
     }
-    rows.forEach(s => {
-      const row = document.createElement("article");
-      row.className = "teacher-row";
-      const title = document.createElement("h3");
-      title.textContent = s.studentName || "Murid";
-      const detail = document.createElement("p");
-      detail.textContent = "Soal: " + (s.quizTitle || "Latihan") + " · Nilai: " + (s.score ?? "Belum dinilai");
-      const answers = document.createElement("p");
-      answers.textContent = "Jawaban: " + (s.answers ? JSON.stringify(s.answers) : "Belum ada jawaban tersimpan");
-      row.append(title, detail, answers);
-      list.appendChild(row);
-    });
-  }, error => {
-    console.error(error);
-    list.replaceChildren();
-    const msg = document.createElement("div");
-    msg.className = "empty-state";
-    msg.textContent = "Hasil tidak dapat dimuat. Aturan akses Firestore untuk submissions perlu disiapkan.";
-    list.appendChild(msg);
-  });
-}
- 
-function bukaKelasGuru() {
-  if (unsubscribeSubmissions) unsubscribeSubmissions();
-  unsubscribeSubmissions = null;
-  showPage("classPage");
-  loadTeacherClasses();
-}
- 
-// ===== PENGELOLAAN GURU KHUSUS ADMIN =====
- 
-function statusLabel(status) {
-  const map = {
-    pending: ["Menunggu", "pending-tag"],
-    approved: ["Disetujui", "approved-tag"],
-    rejected: ["Ditolak", "rejected-tag"],
-    disabled: ["Dinonaktifkan", "disabled-tag"]
-  };
-  return map[status] || ["Status tidak diketahui", "disabled-tag"];
-}
- 
-function teacherCard(profile, uid, mode) {
-  const row = document.createElement("article");
-  row.className = "teacher-row";
- 
-  const title = document.createElement("h3");
-  title.textContent = profile.nama || "Nama belum diisi";
-  const email = document.createElement("p");
-  email.textContent = profile.email || "Email tidak tersedia";
-  const status = document.createElement("span");
-  const [label, css] = statusLabel(profile.status);
-  status.className = css;
-  status.textContent = label;
-  row.append(title, email, status);
- 
-  const actions = document.createElement("div");
-  actions.className = "teacher-actions";
- 
-  function addAction(text, css, nextStatus, confirmText) {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = css;
-    btn.textContent = text;
-    btn.addEventListener("click", async () => {
-      if (!confirm(confirmText)) return;
-      btn.disabled = true;
-      try {
-        await updateDoc(doc(db, "users", uid), {
-          status: nextStatus,
-          updatedAt: serverTimestamp()
-        });
-        await loadTeachers();
-      } catch (error) {
-        console.error(error);
-        alert("Status gagal diubah. Periksa Firestore Rules dan koneksi.");
-      } finally {
-        btn.disabled = false;
-      }
-    });
-    actions.appendChild(btn);
-  }
- 
-  if (mode === "approval") {
-    if (profile.status === "pending") {
-      addAction("✓ Terima", "approve-btn", "approved", "Setujui pendaftaran guru ini?");
-      addAction("✕ Tolak", "reject-btn", "rejected", "Tolak pendaftaran guru ini?");
-    } else if (profile.status === "rejected") {
-      addAction("Terima Guru", "approve-btn", "approved", "Terima guru ini?");
-    }
+    user.name = name;
   } else {
-    if (profile.status === "approved") {
-      addAction("Nonaktifkan", "disable-btn", "disabled", "Nonaktifkan akses guru ini?");
-      addAction("Tolak Akses", "reject-btn", "rejected", "Ubah status guru ini menjadi ditolak?");
-    } else if (profile.status === "disabled" || profile.status === "rejected") {
-      addAction("Aktifkan Kembali", "approve-btn", "approved", "Aktifkan kembali akses guru ini?");
-    } else if (profile.status === "pending") {
-      addAction("✓ Terima", "approve-btn", "approved", "Setujui pendaftaran guru ini?");
-      addAction("✕ Tolak", "reject-btn", "rejected", "Tolak pendaftaran guru ini?");
-    }
+    user = {
+      id: "u_" + Date.now() + "_" + Math.random().toString(36).slice(2,7),
+      name, email, password, role:selectedRole, classes:[]
+    };
+    users.push(user);
   }
- 
-  if (actions.children.length) row.appendChild(actions);
-  return row;
-}
- 
-async function loadTeachers() {
-  if (activeRole !== "admin") return;
-  $("pendingTeachers").replaceChildren();
-  $("allTeachers").replaceChildren();
- 
-  try {
-    const snapshot = await getDocs(collection(db, "users"));
-    teacherProfiles = snapshot.docs
-      .map(d => ({ uid: d.id, ...d.data() }))
-      .filter(p => p.role === "guru");
- 
-    const pending = teacherProfiles.filter(p => p.status === "pending");
-    const approved = teacherProfiles.filter(p => p.status === "approved");
-    const rejected = teacherProfiles.filter(p => ["rejected", "disabled"].includes(p.status));
- 
-    $("countApproved").textContent = approved.length;
-    $("countPending").textContent = pending.length;
-    $("countRejected").textContent = rejected.length;
- 
-    if (!pending.length) {
-      const empty = document.createElement("div");
-      empty.className = "empty-state";
-      empty.textContent = "Tidak ada pendaftaran guru yang menunggu persetujuan.";
-      $("pendingTeachers").appendChild(empty);
-    } else {
-      pending.forEach(p => $("pendingTeachers").appendChild(teacherCard(p, p.uid, "approval")));
-    }
- 
-    if (!teacherProfiles.length) {
-      const empty = document.createElement("div");
-      empty.className = "empty-state";
-      empty.textContent = "Belum ada akun guru terdaftar.";
-      $("allTeachers").appendChild(empty);
-    } else {
-      teacherProfiles.sort((a, b) => (a.nama || "").localeCompare(b.nama || "", "id"));
-      teacherProfiles.forEach(p => $("allTeachers").appendChild(teacherCard(p, p.uid, "management")));
-    }
-  } catch (error) {
-    console.error("Gagal memuat daftar guru:", error);
-    const message = document.createElement("div");
-    message.className = "empty-state";
-    message.textContent = "Daftar guru gagal dimuat. Pastikan akun ini admin dan Firestore Rules sudah diterbitkan.";
-    $("pendingTeachers").appendChild(message);
-    $("allTeachers").appendChild(message.cloneNode(true));
-  }
-}
- 
-function bukaPengelolaanGuru(mode) {
-  if (activeRole !== "admin") {
-    alert("Menu ini hanya dapat dibuka oleh admin.");
-    return;
-  }
-  showPage(mode === "approval" ? "approvalPage" : "teacherManagementPage");
-  loadTeachers();
-}
- 
-// Pulihkan sesi dan periksa status setiap kali login/refresh.
-onAuthStateChanged(auth, async user => {
-  if (registering) return;
- 
-  const check = ++sessionCheck;
-  if (!user) {
-    if (activeRole === "guru" || activeRole === "admin") {
-      clearSession();
-      showPage("home");
-    }
-    return;
-  }
- 
-  try {
-    const result = await verifyAccount(user);
-    if (check !== sessionCheck) return;
- 
-    activeUser = user;
-    activeRole = result.role;
-    studentName = "";
-    buildDashboard();
-    startMaterialsListener();
-  } catch (error) {
-    if (check !== sessionCheck) return;
-    console.error("Akun tidak dapat masuk:", error);
-    const message = error.message || "Akun belum dapat digunakan.";
-    await signOut(auth).catch(() => {});
-    clearSession();
-    selectedRole = "guru";
-    showRoleForm("guru");
-    showError(message);
-  }
+
+  setUsers(users);
+  currentUser = user;
+  sessionStorage.setItem("adaluang_session", user.id);
+  openDashboard();
+  toast("Berhasil masuk ke ADALUANG.");
 });
- 
-showPage("home");
+
+function openDashboard() {
+  if (!currentUser) return;
+  $("logoutButton").classList.remove("hidden");
+  $("homeButton").classList.add("hidden");
+
+  if (currentUser.role === "guru") {
+    $("teacherGreeting").textContent = "Halo, " + currentUser.name + "!";
+    renderTeacher();
+    showPage("teacherPage");
+  } else {
+    $("studentGreeting").textContent = "Halo, " + currentUser.name + "!";
+    renderStudent();
+    showPage("studentPage");
+  }
+}
+function logout() {
+  currentUser = null;
+  sessionStorage.removeItem("adaluang_session");
+  showPage("homePage");
+  toast("Kamu sudah keluar.");
+}
+$("createClassForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!currentUser || currentUser.role !== "guru") return;
+
+  const name = $("className").value.trim();
+  if (!name) return;
+
+  const classes = getClasses();
+  const newClass = {
+    id:"c_" + Date.now(),
+    name,
+    code:makeCode(),
+    teacherId:currentUser.id,
+    teacherName:currentUser.name,
+    studentIds:[],
+    createdAt:new Date().toISOString()
+  };
+  classes.push(newClass);
+  writeStore("adaluang_classes", classes);
+  $("className").value = "";
+  renderTeacher();
+  toast("Kelas berhasil dibuat. Bagikan kode kelas kepada murid.");
+});
+function renderTeacher() {
+  if (!currentUser) return;
+  const classes = getClasses().filter(c => c.teacherId === currentUser.id);
+  $("classCount").textContent = classes.length;
+  $("studentCount").textContent = classes.reduce((sum,c) => sum + c.studentIds.length, 0);
+  const box = $("teacherClasses");
+
+  if (!classes.length) {
+    box.innerHTML = '<div class="empty">Belum ada kelas.<br>Buat kelas pertamamu di atas.</div>';
+    return;
+  }
+  box.innerHTML = classes.map(c => {
+    const users = getUsers();
+    const members = c.studentIds.map(id => users.find(u => u.id === id)).filter(Boolean);
+    return `
+      <div class="class-item">
+        <div>
+          <strong>${escapeHTML(c.name)}</strong>
+          <div class="muted" style="font-size:12px;margin-top:6px">
+            ${members.length} murid bergabung
+          </div>
+          <div class="class-code" style="margin-top:10px">${c.code}</div>
+          <div class="muted" style="font-size:11px">Kode kelas</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn secondary" onclick="copyCode('${c.code}')">Salin Kode</button>
+          <button class="btn outline" onclick="showMembers('${c.id}')">Lihat Murid</button>
+        </div>
+      </div>
+      <div id="members-${c.id}" class="hidden" style="padding:10px 0 18px">
+        ${members.length
+          ? members.map(m => `<div style="padding:8px 0">${escapeHTML(m.name)} <span class="muted">(${escapeHTML(m.email)})</span></div>`).join("")
+          : '<div class="muted">Belum ada murid di kelas ini.</div>'}
+      </div>
+    `;
+  }).join("");
+}
+function showMembers(classId) {
+  const el = $("members-" + classId);
+  if (el) el.classList.toggle("hidden");
+}
+async function copyCode(code) {
+  try {
+    await navigator.clipboard.writeText(code);
+    toast("Kode kelas " + code + " berhasil disalin.");
+  } catch {
+    prompt("Salin kode kelas ini:", code);
+  }
+}
+$("joinClassForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!currentUser || currentUser.role !== "murid") return;
+
+  const code = $("studentJoinCode").value.trim().toUpperCase();
+  const classes = getClasses();
+  const cls = classes.find(c => c.code === code);
+
+  if (!cls) {
+    toast("Kode kelas tidak ditemukan. Periksa kembali kode dari guru.");
+    return;
+  }
+  if (cls.studentIds.includes(currentUser.id)) {
+    toast("Kamu sudah bergabung di kelas ini.");
+    return;
+  }
+
+  cls.studentIds.push(currentUser.id);
+  writeStore("adaluang_classes", classes);
+
+  const users = getUsers();
+  const index = users.findIndex(u => u.id === currentUser.id);
+  if (index >= 0) {
+    users[index].classes = [...new Set([...(users[index].classes || []), cls.id])];
+    setUsers(users);
+    currentUser = users[index];
+  }
+
+  $("studentJoinCode").value = "";
+  renderStudent();
+  toast("Berhasil bergabung ke kelas " + cls.name + ".");
+});
+function renderStudent() {
+  if (!currentUser) return;
+  const ids = currentUser.classes || [];
+  const classes = getClasses().filter(c => ids.includes(c.id));
+  const box = $("studentClasses");
+
+  if (!classes.length) {
+    box.innerHTML = '<div class="empty">Kamu belum bergabung dengan kelas.<br>Masukkan kode dari guru di atas.</div>';
+    return;
+  }
+  box.innerHTML = classes.map(c => `
+    <div class="class-item">
+      <div>
+        <strong>${escapeHTML(c.name)}</strong>
+        <div class="muted" style="font-size:12px;margin-top:5px">
+          Guru: ${escapeHTML(c.teacherName)}
+        </div>
+      </div>
+      <span class="status">Terdaftar</span>
+    </div>
+  `).join("");
+}
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[char]);
+}
+
+// Pulihkan sesi demo saat halaman dimuat ulang.
+(function init() {
+  const id = sessionStorage.getItem("adaluang_session");
+  if (id) {
+    currentUser = getUsers().find(u => u.id === id) || null;
+  }
+  if (currentUser) openDashboard();
+  else showPage("homePage");
+})();
 </script>
 </body>
 </html>
