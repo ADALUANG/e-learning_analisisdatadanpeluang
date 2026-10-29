@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#172554">
-<title>ADALUANG | Analisis Data dan Peluang</title>
-
+<title>ADALUANG | Ayo Dalami Peluang</title>
+ 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
-
+ 
 :root {
   --navy: #172554;
   --blue: #3b82f6;
@@ -17,7 +16,7 @@
   --teal: #14b8a6;
   --muted: #64748b;
 }
-
+ 
 * { box-sizing: border-box; }
 body {
   margin: 0; min-height: 100vh; font-family: 'Nunito', sans-serif;
@@ -28,7 +27,7 @@ body {
 button, input, textarea { font: inherit; }
 button { cursor: pointer; }
 button:disabled { opacity: .6; cursor: not-allowed; }
-
+ 
 .topbar {
   max-width: 1120px; margin: auto; padding: 22px 28px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -47,7 +46,7 @@ button:disabled { opacity: .6; cursor: not-allowed; }
   padding: 9px 15px; font-size: 12px; font-weight: 800;
 }
 main { max-width: 1050px; margin: auto; padding: 22px 24px 50px; }
-
+ 
 .hero {
   display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 30px;
   background: white; padding: 42px; border-radius: 30px; border: 1px solid #e5eaf5;
@@ -89,7 +88,7 @@ h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.12; letter-spacing: -1.5p
 }
 .float.one { top: 14px; right: 0; color: #7c3aed; }
 .float.two { bottom: 10px; left: 0; color: #0d9488; }
-
+ 
 .section-head { margin: 38px 0 20px; text-align: center; }
 .section-head h2 { font-size: 26px; margin: 0 0 7px; }
 .section-head p { color: var(--muted); margin: 0; font-size: 14px; }
@@ -114,7 +113,7 @@ h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.12; letter-spacing: -1.5p
 .role-card button:hover, .primary-btn:hover { filter: brightness(.94); }
 .teacher-btn { background: linear-gradient(100deg, #3b82f6, #6366f1); }
 .student-btn { background: linear-gradient(100deg, #0d9488, #14b8a6); }
-
+ 
 .panel {
   max-width: 460px; margin: 30px auto; background: white; padding: 30px;
   border-radius: 25px; border: 1px solid #e2e8f0; box-shadow: 0 18px 45px #17255410;
@@ -172,7 +171,7 @@ input:focus, textarea:focus { border-color: #818cf8; box-shadow: 0 0 0 3px #818c
 }
 .open-material { background: #3157a4; color: white; }
 .delete-material { background: #fee2e2; color: #b91c1c; }
-.empty-state {
+.class-code { font-size: 20px; font-weight: 900; letter-spacing: 2px; color: #0f766e; }\n.empty-state {
   grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 28px;
   border: 1px dashed #cbd5e1; border-radius: 14px;
 }
@@ -197,7 +196,7 @@ input:focus, textarea:focus { border-color: #818cf8; box-shadow: 0 0 0 3px #818c
 .disabled-tag { background: #e2e8f0; color: #334155; }
 footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px; }
 .hidden { display: none !important; }
-
+ 
 @media (max-width: 700px) {
   .topbar { padding: 16px; }
   .brand-name { font-size: 19px; }
@@ -216,19 +215,19 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
 }
 </style>
 </head>
-
+ 
 <body>
 <header class="topbar">
   <div class="brand">
     <div class="logo">A</div>
     <div>
       <div class="brand-name">ADALUANG</div>
-      <div class="brand-sub">RUANG BELAJAR MATEMATIKA</div>
+      <div class="brand-sub">AYO DALAMI PELUANG</div>
     </div>
   </div>
   <div class="pill">✨ SMA / MA</div>
 </header>
-
+ 
 <main>
   <section id="home">
     <div class="hero">
@@ -236,8 +235,7 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
         <span class="eyebrow">✦ BELAJAR • EKSPLORASI • TEMUKAN</span>
         <h1>Angka punya cerita.<br><span class="gradient-text">Ayo temukan!</span></h1>
         <p class="hero-desc">
-          Selamat datang di ADALUANG, ruang belajar Analisis Data
-          dan Peluang. Pahami konsep, coba eksperimen, dan uji
+          Selamat datang di ADALUANG — Ayo Dalami Peluang. Pahami konsep, coba eksperimen, dan uji
           kemampuanmu dengan cara yang lebih menyenangkan.
         </p>
       </div>
@@ -255,35 +253,35 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
         <div class="float two">🎲 Peluang</div>
       </div>
     </div>
-
+ 
     <div class="section-head">
       <h2>Siap untuk mulai belajar?</h2>
       <p>Pilih ruang belajar sesuai peranmu.</p>
     </div>
-
+ 
     <div class="roles">
       <article class="role-card">
         <div class="role-icon teacher-icon">👩‍🏫</div>
         <h3>Ruang Guru</h3>
-        <p>Kelola pembelajaran, siapkan soal, tinjau hasil, dan berikan feedback kepada murid.</p>
+        <p>Buat kelas, bagikan kode kelas, dan pantau perkembangan murid.</p>
         <button class="teacher-btn" onclick="chooseRole('guru')">Masuk sebagai Guru ↗</button>
       </article>
       <article class="role-card">
         <div class="role-icon student-icon">🎓</div>
         <h3>Ruang Murid</h3>
-        <p>Pelajari materi, amati grafik, lakukan simulasi, dan selesaikan tantangan matematika.</p>
+        <p>Gabung ke kelas, pelajari materi, dan kerjakan soal Analisis Data dan Peluang.</p>
         <button class="student-btn" onclick="chooseRole('murid')">Masuk sebagai Murid ↗</button>
       </article>
     </div>
   </section>
-
+ 
   <section id="login" class="panel hidden">
     <div class="panel-head">
       <div id="loginIcon" class="role-icon teacher-icon">🔐</div>
       <h2 id="loginTitle">Ruang Guru</h2>
       <p id="loginDesc">Masukkan data akun untuk melanjutkan.</p>
     </div>
-
+ 
     <form id="loginForm">
       <div id="nameField">
         <label id="nameLabel" for="fullName">Email akun</label>
@@ -295,10 +293,10 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
       </div>
       <button class="primary-btn teacher-btn" id="loginButton" type="submit">Masuk →</button>
     </form>
-
+ 
     <div id="error" class="error" role="alert"></div>
     <div id="registerMessage" class="success" role="status"></div>
-
+ 
     <div id="registerBox" class="hidden">
       <div class="notice">
         Pendaftaran guru akan menunggu persetujuan admin. Setelah diterima,
@@ -307,24 +305,24 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
       <form id="registerForm">
         <label for="registerName">Nama lengkap</label>
         <input id="registerName" type="text" maxlength="80" autocomplete="name" required placeholder="Nama lengkap guru">
-
+ 
         <label for="registerEmail">Email</label>
         <input id="registerEmail" type="email" maxlength="254" autocomplete="email" required placeholder="nama@email.com">
-
+ 
         <label for="registerPassword">Password (minimal 6 karakter)</label>
         <input id="registerPassword" type="password" minlength="6" autocomplete="new-password" required placeholder="Buat password">
-
+ 
         <label for="registerPassword2">Ulangi password</label>
         <input id="registerPassword2" type="password" minlength="6" autocomplete="new-password" required placeholder="Ulangi password">
-
+ 
         <button id="registerSubmit" class="primary-btn teacher-btn" type="submit">Kirim Pendaftaran →</button>
       </form>
     </div>
-
+ 
     <button id="registerButton" class="back-btn" type="button">Daftar sebagai Guru</button>
     <button class="back-btn" onclick="goHome()" type="button">← Kembali ke Beranda</button>
   </section>
-
+ 
   <section id="dashboard" class="panel wide hidden">
     <div class="welcome-icon" id="welcomeIcon">🎓</div>
     <div class="panel-head">
@@ -337,7 +335,7 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
     </div>
     <div id="dashboardLinks" class="dashboard-links"></div>
   </section>
-
+ 
   <section id="approvalPage" class="panel wide hidden">
     <div class="page-heading">
       <div>
@@ -349,7 +347,7 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
     </div>
     <div id="pendingTeachers"><div class="empty-state">Memuat pendaftaran...</div></div>
   </section>
-
+ 
   <section id="teacherManagementPage" class="panel wide hidden">
     <div class="page-heading">
       <div>
@@ -366,36 +364,57 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
     </div>
     <div id="allTeachers"><div class="empty-state">Memuat daftar guru...</div></div>
   </section>
-
+ 
+ 
+  <section id="classPage" class="panel wide hidden">
+    <div class="page-heading">
+      <div>
+        <span class="eyebrow">RUANG GURU</span>
+        <h2>Kelas Saya</h2>
+        <p style="color:var(--muted)">Buat kelas dan bagikan kode kepada murid.</p>
+      </div>
+      <button class="secondary-btn" onclick="kembaliDashboard()">← Dashboard</button>
+    </div>
+    <div class="material-form">
+      <h3>＋ Buat Kelas</h3>
+      <form id="classForm">
+        <label for="className">Nama kelas</label>
+        <input id="className" maxlength="100" required placeholder="Contoh: X-1">
+        <button id="createClassButton" class="primary-btn teacher-btn" type="submit">Buat Kelas</button>
+      </form>
+      <div id="classMessage" class="success" role="status"></div>
+    </div>
+    <h3>Daftar Kelas</h3>
+    <div id="teacherClasses" class="dashboard-links"><div class="empty-state">Memuat kelas...</div></div>
+  </section>
+ 
+  <section id="classMonitorPage" class="panel wide hidden">
+    <div class="page-heading">
+      <div>
+        <span class="eyebrow">PEMANTAUAN KELAS</span>
+        <h2 id="monitorClassTitle">Aktivitas Murid</h2>
+        <p id="monitorClassCode" style="color:var(--muted)"></p>
+      </div>
+      <button class="secondary-btn" onclick="bukaKelasGuru()">← Kembali ke Kelas</button>
+    </div>
+    <h3>Hasil pengerjaan murid</h3>
+    <div id="classSubmissions"><div class="empty-state">Pilih kelas untuk melihat hasil.</div></div>
+  </section>
+ 
   <section id="materiPage" class="panel wide hidden">
     <div class="page-heading">
       <div>
         <span class="eyebrow">ADALUANG</span>
         <h2>Materi Pembelajaran</h2>
-        <p style="color:var(--muted)">Analisis Data dan Peluang — SMA/MA</p>
+        <p style="color:var(--muted)">Konten terpusat ADALUANG — SMA/MA</p>
       </div>
       <button class="secondary-btn" onclick="kembaliDashboard()">← Dashboard</button>
     </div>
-
-    <div id="formMateri" class="material-form hidden">
-      <h3>＋ Tambahkan Materi</h3>
-      <form id="materialForm">
-        <label for="judulMateri">Judul materi</label>
-        <input id="judulMateri" type="text" placeholder="Contoh: Penyajian Data" required maxlength="150">
-        <label for="deskripsiMateri">Deskripsi</label>
-        <textarea id="deskripsiMateri" placeholder="Tuliskan deskripsi materi..." required maxlength="3000"></textarea>
-        <label for="linkMateri">Tautan PDF/PPT</label>
-        <input id="linkMateri" type="url" placeholder="https://..." required>
-        <button id="saveMaterialButton" type="submit" class="primary-btn teacher-btn">Simpan Materi</button>
-      </form>
-      <div id="materialError" class="error" role="alert"></div>
-      <div class="notice">Tempelkan tautan file yang dapat diakses murid. File harus diunggah terlebih dahulu ke penyimpanan seperti Google Drive.</div>
-    </div>
-    <h3>Daftar Materi</h3>
+    <h3>Daftar Materi</h3>\n    <p style="color:var(--muted)">Materi ini sama untuk semua guru dan murid, dikelola langsung melalui coding ADALUANG.</p>
     <p id="jumlahMateri" style="color:var(--muted)">Memuat materi...</p>
     <div id="daftarMateri" class="material-list"></div>
   </section>
-
+ 
   <section id="comingPage" class="panel hidden">
     <div class="panel-head">
       <div class="welcome-icon">🚧</div>
@@ -405,12 +424,12 @@ footer { text-align: center; padding: 25px 15px; color: #94a3b8; font-size: 12px
     <button class="back-btn" onclick="kembaliDashboard()">← Dashboard</button>
   </section>
 </main>
-
+ 
 <footer>
   ADALUANG © 2026 · Analisis Data dan Peluang<br>
   Belajar matematika dengan cara yang lebih bermakna.
 </footer>
-
+ 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -421,7 +440,7 @@ import {
   getFirestore, doc, getDoc, setDoc, collection, addDoc, deleteDoc,
   getDocs, updateDoc, onSnapshot, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+ 
 const firebaseConfig = {
   apiKey: "AIzaSyDuVGHdk05SzOdTGuXsqfKZZwF1dYsmQDU",
   authDomain: "adaluang.firebaseapp.com",
@@ -431,29 +450,32 @@ const firebaseConfig = {
   appId: "1:970393246155:web:e2f6971c49d85624acbe4",
   measurementId: "G-PNKBBCZLMN"
 };
-
+ 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const STUDENT_ACCESS_CODE = "MURIDADALUANG";
-
+const STUDENT_ACCESS_CODE = ""; // Login murid menggunakan kode kelas masing-masing.
+ 
 let selectedRole = "";
 let activeUser = null;
 let activeRole = null;
 let studentName = "";
 let unsubscribeMaterials = null;
 let unsubscribeUsers = null;
+let unsubscribeSubmissions = null;
+let teacherClasses = [];
+let activeClassId = null;
 let materials = [];
 let teacherProfiles = [];
 let registering = false;
 let sessionCheck = 0;
-
+ 
 const $ = id => document.getElementById(id);
 const PAGE_IDS = [
   "home", "login", "dashboard", "approvalPage",
-  "teacherManagementPage", "materiPage", "comingPage"
+  "teacherManagementPage", "classPage", "classMonitorPage", "materiPage", "comingPage"
 ];
-
+ 
 function showPage(id) {
   PAGE_IDS.forEach(page => $(page).classList.toggle("hidden", page !== id));
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -470,6 +492,10 @@ function stopUsersListener() {
 function clearSession() {
   stopMaterialsListener();
   stopUsersListener();
+  if (unsubscribeSubmissions) unsubscribeSubmissions();
+  unsubscribeSubmissions = null;
+  activeClassId = null;
+  teacherClasses = [];
   activeUser = null;
   activeRole = null;
   studentName = "";
@@ -490,7 +516,7 @@ function setLoginMode(mode) {
   $("registerMessage").textContent = "";
   showError("");
 }
-
+ 
 function showRoleForm(role) {
   selectedRole = role;
   const isTeacher = role === "guru";
@@ -499,13 +525,15 @@ function showRoleForm(role) {
   $("dashboard").classList.add("hidden");
   $("approvalPage").classList.add("hidden");
   $("teacherManagementPage").classList.add("hidden");
+  $("classPage").classList.add("hidden");
+  $("classMonitorPage").classList.add("hidden");
   $("materiPage").classList.add("hidden");
   $("comingPage").classList.add("hidden");
-
+ 
   $("loginTitle").textContent = isTeacher ? "Ruang Guru" : "Ruang Murid";
   $("loginDesc").textContent = isTeacher
     ? "Masuk menggunakan akun guru yang telah disetujui admin."
-    : "Masukkan nama lengkap dan kode akses murid.";
+    : "Masukkan nama dan kode kelas dari guru.";
   $("loginIcon").textContent = isTeacher ? "👩‍🏫" : "🎓";
   $("loginIcon").className = "role-icon " + (isTeacher ? "teacher-icon" : "student-icon");
   $("loginButton").className = "primary-btn " + (isTeacher ? "teacher-btn" : "student-btn");
@@ -540,7 +568,7 @@ $("registerButton").addEventListener("click", () => {
   if (selectedRole !== "guru") return;
   setLoginMode($("registerBox").classList.contains("hidden") ? "register" : "login");
 });
-
+ 
 function buildDashboard() {
   $("welcomeIcon").textContent = activeRole === "admin" ? "🛡️" : activeRole === "guru" ? "👩‍🏫" : "🎓";
   $("welcomeTitle").textContent = "Halo, " +
@@ -550,16 +578,16 @@ function buildDashboard() {
     : activeRole === "guru"
       ? "Selamat datang di ruang pengelolaan pembelajaran ADALUANG."
       : "Saatnya menjelajahi dunia Analisis Data dan Peluang.";
-
+ 
   const links = $("dashboardLinks");
   links.replaceChildren();
-
+ 
   const menus = [{
     ikon: "📚", judul: "Materi",
-    deskripsi: activeRole === "murid" ? "Lihat materi pembelajaran yang tersedia." : "Kelola materi pembelajaran.",
+    deskripsi: "Materi terpusat ADALUANG dan sama untuk semua pengguna.",
     aksi: bukaMateri
   }];
-
+ 
   if (activeRole === "admin") {
     menus.push({
       ikon: "🛡️", judul: "Persetujuan Guru",
@@ -571,14 +599,18 @@ function buildDashboard() {
       deskripsi: "Lihat status guru dan aktifkan atau nonaktifkan akses.",
       aksi: () => bukaPengelolaanGuru("management")
     });
+  } else if (activeRole === "guru") {
+    menus.push(
+      { ikon: "🏫", judul: "Kelas Saya", deskripsi: "Buat kode kelas dan pantau murid yang bergabung.", aksi: bukaKelasGuru },
+      { ikon: "📊", judul: "Pemantauan Murid", deskripsi: "Pantau hasil pengerjaan murid berdasarkan kelas milikmu.", aksi: bukaKelasGuru }
+    );
   } else {
     menus.push(
-      { ikon: "📝", judul: "Soal Latihan", deskripsi: "Latihan soal Analisis Data dan Peluang.", aksi: () => bukaFitur("Soal Latihan") },
-      { ikon: "💬", judul: "Feedback", deskripsi: "Umpan balik kegiatan pembelajaran.", aksi: () => bukaFitur("Feedback") },
-      { ikon: "📊", judul: "Progres Belajar", deskripsi: "Informasi perkembangan belajar.", aksi: () => bukaFitur("Progres Belajar") }
+      { ikon: "📝", judul: "Soal Latihan", deskripsi: "Kerjakan soal terpusat ADALUANG.", aksi: () => bukaFitur("Soal Latihan") },
+      { ikon: "📊", judul: "Progres Belajar", deskripsi: "Lihat perkembangan pengerjaanmu.", aksi: () => bukaFitur("Progres Belajar") }
     );
   }
-
+ 
   menus.forEach(item => {
     const card = document.createElement("div");
     card.className = "dashboard-item";
@@ -596,23 +628,23 @@ function buildDashboard() {
   });
   showPage("dashboard");
 }
-
+ 
 function bukaFitur(nama) {
   $("comingTitle").textContent = nama;
   showPage("comingPage");
 }
-
+ 
 async function getProfile(user) {
   const snap = await getDoc(doc(db, "users", user.uid));
   if (!snap.exists()) throw new Error("Profil akun tidak ditemukan di Firestore.");
   return snap.data();
 }
-
+ 
 async function verifyAccount(user) {
   const profile = await getProfile(user);
-
+ 
   if (profile.role === "admin") return { role: "admin", profile };
-
+ 
   if (profile.role !== "guru") {
     throw new Error("Akun ini tidak terdaftar sebagai guru atau admin.");
   }
@@ -630,7 +662,7 @@ async function verifyAccount(user) {
   }
   return { role: "guru", profile };
 }
-
+ 
 function authMessage(error) {
   const messages = {
     "auth/invalid-credential": "Email atau password salah.",
@@ -644,32 +676,29 @@ function authMessage(error) {
   };
   return messages[error.code] || error.message || "Terjadi kesalahan.";
 }
-
+ 
 $("loginForm").addEventListener("submit", async event => {
   event.preventDefault();
   showError("");
   $("registerMessage").textContent = "";
-
+ 
   const identity = $("fullName").value.trim();
   const passwordOrCode = $("accessCode").value;
-
+ 
   if (selectedRole === "murid") {
-    if (passwordOrCode !== STUDENT_ACCESS_CODE) {
-      showError("Kode akses tidak sesuai. Silakan periksa kembali.");
+    const classCode = passwordOrCode.trim().toUpperCase();
+    if (!identity || !classCode) {
+      showError("Masukkan nama dan kode kelas.");
       return;
     }
-    activeUser = null;
-    activeRole = "murid";
-    studentName = identity;
-    buildDashboard();
-    startMaterialsListener();
+    showError("Login murid dengan kode kelas sudah disiapkan pada tampilan, tetapi perlu Firebase Anonymous Authentication dan aturan Firestore untuk mengaktifkan kelas secara aman.");
     return;
   }
-
+ 
   const button = $("loginButton");
   button.disabled = true;
   button.textContent = "Memeriksa akun...";
-
+ 
   try {
     await signInWithEmailAndPassword(auth, identity, passwordOrCode);
     // onAuthStateChanged memeriksa status akun sebelum membuka dashboard.
@@ -680,17 +709,17 @@ $("loginForm").addEventListener("submit", async event => {
     button.textContent = "Masuk ke Ruang Guru →";
   }
 });
-
+ 
 $("registerForm").addEventListener("submit", async event => {
   event.preventDefault();
   showError("");
   $("registerMessage").textContent = "";
-
+ 
   const nama = $("registerName").value.trim();
   const email = $("registerEmail").value.trim().toLowerCase();
   const password = $("registerPassword").value;
   const password2 = $("registerPassword2").value;
-
+ 
   if (!nama) {
     showError("Nama lengkap wajib diisi.");
     return;
@@ -703,17 +732,17 @@ $("registerForm").addEventListener("submit", async event => {
     showError("Konfirmasi password tidak sama.");
     return;
   }
-
+ 
   const button = $("registerSubmit");
   button.disabled = true;
   button.textContent = "Mengirim pendaftaran...";
   registering = true;
-
+ 
   let createdUser = null;
   try {
     const credential = await createUserWithEmailAndPassword(auth, email, password);
     createdUser = credential.user;
-
+ 
     await setDoc(doc(db, "users", createdUser.uid), {
       nama,
       email,
@@ -721,7 +750,7 @@ $("registerForm").addEventListener("submit", async event => {
       status: "pending",
       createdAt: serverTimestamp()
     });
-
+ 
     await signOut(auth);
     $("registerForm").reset();
     setLoginMode("login");
@@ -740,7 +769,7 @@ $("registerForm").addEventListener("submit", async event => {
     button.textContent = "Kirim Pendaftaran →";
   }
 });
-
+ 
 window.logout = async function() {
   stopMaterialsListener();
   stopUsersListener();
@@ -754,44 +783,27 @@ window.logout = async function() {
   selectedRole = "";
   showPage("home");
 };
-
+ 
 function bukaMateri() {
   if (activeRole !== "guru" && activeRole !== "admin" && activeRole !== "murid") {
     showPage("home");
     return;
   }
-  $("formMateri").classList.toggle("hidden", activeRole !== "guru" && activeRole !== "admin");
   $("materialError").textContent = "";
-  $("materialError").className = "error";
   showPage("materiPage");
   renderMaterials();
 }
-
+ 
 function startMaterialsListener() {
-  stopMaterialsListener();
-  $("jumlahMateri").textContent = "Memuat materi...";
-  $("daftarMateri").replaceChildren();
-
-  unsubscribeMaterials = onSnapshot(collection(db, "materials"), snapshot => {
-    materials = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-    materials.sort((a, b) => (b.createdAt?.toMillis?.() || 0) - (a.createdAt?.toMillis?.() || 0));
-    renderMaterials();
-  }, error => {
-    console.error("Gagal memuat materi:", error);
-    $("jumlahMateri").textContent = "Materi belum dapat dimuat.";
-    $("daftarMateri").replaceChildren();
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.textContent = "Tidak dapat memuat materi. Periksa Firestore Rules dan koneksi internet.";
-    $("daftarMateri").appendChild(empty);
-  });
+  materials = CENTRAL_MATERIALS;
+  renderMaterials();
 }
-
+ 
 function renderMaterials() {
   const list = $("daftarMateri");
   list.replaceChildren();
-  $("jumlahMateri").textContent = materials.length + " materi tersedia";
-
+  $("jumlahMateri").textContent = materials.length + " materi terpusat tersedia";
+ 
   if (!materials.length) {
     const empty = document.createElement("div");
     empty.className = "empty-state";
@@ -799,7 +811,7 @@ function renderMaterials() {
     list.appendChild(empty);
     return;
   }
-
+ 
   materials.forEach(item => {
     const card = document.createElement("article");
     card.className = "material-card";
@@ -810,14 +822,12 @@ function renderMaterials() {
     title.textContent = item.judul || "Tanpa judul";
     const desc = document.createElement("p");
     desc.textContent = item.deskripsi || "";
-    const author = document.createElement("p");
-    author.textContent = "Dibuat oleh: " + (item.pembuat || "Guru");
-    card.append(tag, title, desc, author);
-
+    card.append(tag, title, desc);
+ 
     const actions = document.createElement("div");
     actions.className = "material-actions";
     const url = safeUrl(item.link || "");
-
+ 
     if (url) {
       const open = document.createElement("a");
       open.className = "open-material";
@@ -827,81 +837,174 @@ function renderMaterials() {
       open.textContent = "Buka Materi ↗";
       actions.appendChild(open);
     }
-
-    if ((activeRole === "guru" || activeRole === "admin") &&
-        activeUser && item.ownerUid === activeUser.uid) {
-      const del = document.createElement("button");
-      del.className = "delete-material";
-      del.type = "button";
-      del.textContent = "Hapus";
-      del.addEventListener("click", () => hapusMateri(item.id));
-      actions.appendChild(del);
-    }
     if (actions.children.length) card.appendChild(actions);
     list.appendChild(card);
   });
 }
-
-$("materialForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  if (!activeUser || !["guru", "admin"].includes(activeRole)) {
-    $("materialError").textContent = "Login sebagai guru yang disetujui diperlukan.";
+ 
+ 
+// Materi terpusat: konten ini sama untuk semua guru dan murid.
+// Tambahkan/ubah materi langsung pada daftar berikut di dalam coding.
+const CENTRAL_MATERIALS = [
+  { id: "materi-1", judul: "Pengumpulan dan Penyajian Data", deskripsi: "Mengenal jenis data, tabel frekuensi, diagram, dan cara membaca informasi dari data.", link: "https://www.khanacademy.org/math/statistics-probability" },
+  { id: "materi-2", judul: "Ukuran Pemusatan Data", deskripsi: "Mempelajari mean, median, dan modus serta penggunaannya untuk merangkum data.", link: "https://www.khanacademy.org/math/statistics-probability" },
+  { id: "materi-3", judul: "Peluang Suatu Kejadian", deskripsi: "Mengenal ruang sampel, titik sampel, dan peluang suatu kejadian.", link: "https://www.khanacademy.org/math/statistics-probability" }
+];
+ 
+function makeClassCode() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code = "";
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
+}
+ 
+function bukaKelasGuru() {
+  if (activeRole !== "guru" || !activeUser) {
+    alert("Menu kelas hanya tersedia untuk guru yang sudah disetujui.");
     return;
   }
-
-  const judul = $("judulMateri").value.trim();
-  const deskripsi = $("deskripsiMateri").value.trim();
-  const link = safeUrl($("linkMateri").value.trim());
-  if (!judul || !deskripsi || !link) {
-    $("materialError").textContent = "Lengkapi semua kolom dengan tautan HTTP/HTTPS yang valid.";
-    return;
-  }
-
-  const button = $("saveMaterialButton");
-  button.disabled = true;
-  button.textContent = "Menyimpan...";
-  $("materialError").textContent = "";
-  $("materialError").className = "error";
-
+  showPage("classPage");
+  loadTeacherClasses();
+}
+ 
+async function loadTeacherClasses() {
+  const container = $("teacherClasses");
+  container.replaceChildren();
+  const loading = document.createElement("div");
+  loading.className = "empty-state";
+  loading.textContent = "Memuat kelas...";
+  container.appendChild(loading);
   try {
-    await addDoc(collection(db, "materials"), {
-      judul, deskripsi, link,
-      ownerUid: activeUser.uid,
-      pembuat: activeUser.displayName || activeUser.email || "Guru",
-      createdAt: serverTimestamp()
-    });
-    $("materialForm").reset();
-    $("materialError").className = "success";
-    $("materialError").textContent = "Materi berhasil disimpan.";
+    const snap = await getDocs(collection(db, "classes"));
+    teacherClasses = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+      .filter(c => c.ownerUid === activeUser.uid);
+    renderTeacherClasses();
   } catch (error) {
     console.error(error);
-    $("materialError").textContent = "Materi gagal disimpan. Periksa Firestore Rules.";
-  } finally {
-    button.disabled = false;
-    button.textContent = "Simpan Materi";
-  }
-});
-
-async function hapusMateri(id) {
-  if (!activeUser || !["guru", "admin"].includes(activeRole)) return;
-  const item = materials.find(m => m.id === id);
-  if (!item || item.ownerUid !== activeUser.uid) {
-    $("materialError").textContent = "Kamu hanya dapat menghapus materi milikmu sendiri.";
-    return;
-  }
-  if (!confirm("Yakin ingin menghapus materi ini?")) return;
-  try {
-    await deleteDoc(doc(db, "materials", id));
-    $("materialError").className = "success";
-    $("materialError").textContent = "Materi berhasil dihapus.";
-  } catch (error) {
-    $("materialError").className = "error";
-    $("materialError").textContent = "Materi gagal dihapus. Periksa Firestore Rules.";
+    container.replaceChildren();
+    const message = document.createElement("div");
+    message.className = "empty-state";
+    message.textContent = "Kelas belum dapat dimuat. Firestore Security Rules untuk koleksi classes perlu disiapkan terlebih dahulu.";
+    container.appendChild(message);
   }
 }
-
+ 
+function renderTeacherClasses() {
+  const container = $("teacherClasses");
+  container.replaceChildren();
+  if (!teacherClasses.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Belum ada kelas. Buat kelas pertama untuk mendapatkan kode.";
+    container.appendChild(empty);
+    return;
+  }
+  teacherClasses.forEach(c => {
+    const card = document.createElement("article");
+    card.className = "dashboard-item";
+    const title = document.createElement("h3");
+    title.textContent = "🏫 " + (c.nama || "Kelas tanpa nama");
+    const code = document.createElement("p");
+    code.textContent = "Kode kelas: " + (c.code || "Belum tersedia");
+    const copy = document.createElement("button");
+    copy.className = "menu-btn";
+    copy.textContent = "Salin kode";
+    copy.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(c.code);
+        copy.textContent = "Kode tersalin ✓";
+      } catch {
+        prompt("Salin kode kelas ini:", c.code);
+      }
+    });
+    const monitor = document.createElement("button");
+    monitor.className = "menu-btn";
+    monitor.style.marginTop = "8px";
+    monitor.textContent = "Pantau hasil murid →";
+    monitor.addEventListener("click", () => openClassMonitor(c));
+    card.append(title, code, copy, monitor);
+    container.appendChild(card);
+  });
+}
+ 
+$("classForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  if (activeRole !== "guru" || !activeUser) return;
+  const nama = $("className").value.trim();
+  if (!nama) return;
+  const button = $("createClassButton");
+  button.disabled = true;
+  $("classMessage").textContent = "";
+  try {
+    const code = makeClassCode();
+    await addDoc(collection(db, "classes"), {
+      nama, code, ownerUid: activeUser.uid, createdAt: serverTimestamp()
+    });
+    $("classForm").reset();
+    $("classMessage").textContent = "Kelas berhasil dibuat. Bagikan kode kelas kepada murid.";
+    await loadTeacherClasses();
+  } catch (error) {
+    console.error(error);
+    $("classMessage").textContent = "Kelas belum bisa dibuat. Aturan akses Firestore untuk classes harus disiapkan sebelum fitur ini aktif.";
+  } finally {
+    button.disabled = false;
+  }
+});
+ 
+function openClassMonitor(c) {
+  activeClassId = c.id;
+  $("monitorClassTitle").textContent = "Aktivitas Murid — " + (c.nama || "Kelas");
+  $("monitorClassCode").textContent = "Kode kelas: " + (c.code || "");
+  showPage("classMonitorPage");
+  if (unsubscribeSubmissions) unsubscribeSubmissions();
+  const list = $("classSubmissions");
+  list.replaceChildren();
+  const loading = document.createElement("div");
+  loading.className = "empty-state";
+  loading.textContent = "Memuat hasil pengerjaan...";
+  list.appendChild(loading);
+  unsubscribeSubmissions = onSnapshot(collection(db, "submissions"), snapshot => {
+    list.replaceChildren();
+    const rows = snapshot.docs.map(d => ({ id: d.id, ...d.data() }))
+      .filter(s => s.classId === c.id);
+    if (!rows.length) {
+      const empty = document.createElement("div");
+      empty.className = "empty-state";
+      empty.textContent = "Belum ada hasil pengerjaan untuk kelas ini.";
+      list.appendChild(empty);
+      return;
+    }
+    rows.forEach(s => {
+      const row = document.createElement("article");
+      row.className = "teacher-row";
+      const title = document.createElement("h3");
+      title.textContent = s.studentName || "Murid";
+      const detail = document.createElement("p");
+      detail.textContent = "Soal: " + (s.quizTitle || "Latihan") + " · Nilai: " + (s.score ?? "Belum dinilai");
+      const answers = document.createElement("p");
+      answers.textContent = "Jawaban: " + (s.answers ? JSON.stringify(s.answers) : "Belum ada jawaban tersimpan");
+      row.append(title, detail, answers);
+      list.appendChild(row);
+    });
+  }, error => {
+    console.error(error);
+    list.replaceChildren();
+    const msg = document.createElement("div");
+    msg.className = "empty-state";
+    msg.textContent = "Hasil tidak dapat dimuat. Aturan akses Firestore untuk submissions perlu disiapkan.";
+    list.appendChild(msg);
+  });
+}
+ 
+function bukaKelasGuru() {
+  if (unsubscribeSubmissions) unsubscribeSubmissions();
+  unsubscribeSubmissions = null;
+  showPage("classPage");
+  loadTeacherClasses();
+}
+ 
 // ===== PENGELOLAAN GURU KHUSUS ADMIN =====
-
+ 
 function statusLabel(status) {
   const map = {
     pending: ["Menunggu", "pending-tag"],
@@ -911,11 +1014,11 @@ function statusLabel(status) {
   };
   return map[status] || ["Status tidak diketahui", "disabled-tag"];
 }
-
+ 
 function teacherCard(profile, uid, mode) {
   const row = document.createElement("article");
   row.className = "teacher-row";
-
+ 
   const title = document.createElement("h3");
   title.textContent = profile.nama || "Nama belum diisi";
   const email = document.createElement("p");
@@ -925,10 +1028,10 @@ function teacherCard(profile, uid, mode) {
   status.className = css;
   status.textContent = label;
   row.append(title, email, status);
-
+ 
   const actions = document.createElement("div");
   actions.className = "teacher-actions";
-
+ 
   function addAction(text, css, nextStatus, confirmText) {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -952,7 +1055,7 @@ function teacherCard(profile, uid, mode) {
     });
     actions.appendChild(btn);
   }
-
+ 
   if (mode === "approval") {
     if (profile.status === "pending") {
       addAction("✓ Terima", "approve-btn", "approved", "Setujui pendaftaran guru ini?");
@@ -971,30 +1074,30 @@ function teacherCard(profile, uid, mode) {
       addAction("✕ Tolak", "reject-btn", "rejected", "Tolak pendaftaran guru ini?");
     }
   }
-
+ 
   if (actions.children.length) row.appendChild(actions);
   return row;
 }
-
+ 
 async function loadTeachers() {
   if (activeRole !== "admin") return;
   $("pendingTeachers").replaceChildren();
   $("allTeachers").replaceChildren();
-
+ 
   try {
     const snapshot = await getDocs(collection(db, "users"));
     teacherProfiles = snapshot.docs
       .map(d => ({ uid: d.id, ...d.data() }))
       .filter(p => p.role === "guru");
-
+ 
     const pending = teacherProfiles.filter(p => p.status === "pending");
     const approved = teacherProfiles.filter(p => p.status === "approved");
     const rejected = teacherProfiles.filter(p => ["rejected", "disabled"].includes(p.status));
-
+ 
     $("countApproved").textContent = approved.length;
     $("countPending").textContent = pending.length;
     $("countRejected").textContent = rejected.length;
-
+ 
     if (!pending.length) {
       const empty = document.createElement("div");
       empty.className = "empty-state";
@@ -1003,7 +1106,7 @@ async function loadTeachers() {
     } else {
       pending.forEach(p => $("pendingTeachers").appendChild(teacherCard(p, p.uid, "approval")));
     }
-
+ 
     if (!teacherProfiles.length) {
       const empty = document.createElement("div");
       empty.className = "empty-state";
@@ -1022,7 +1125,7 @@ async function loadTeachers() {
     $("allTeachers").appendChild(message.cloneNode(true));
   }
 }
-
+ 
 function bukaPengelolaanGuru(mode) {
   if (activeRole !== "admin") {
     alert("Menu ini hanya dapat dibuka oleh admin.");
@@ -1031,11 +1134,11 @@ function bukaPengelolaanGuru(mode) {
   showPage(mode === "approval" ? "approvalPage" : "teacherManagementPage");
   loadTeachers();
 }
-
+ 
 // Pulihkan sesi dan periksa status setiap kali login/refresh.
 onAuthStateChanged(auth, async user => {
   if (registering) return;
-
+ 
   const check = ++sessionCheck;
   if (!user) {
     if (activeRole === "guru" || activeRole === "admin") {
@@ -1044,11 +1147,11 @@ onAuthStateChanged(auth, async user => {
     }
     return;
   }
-
+ 
   try {
     const result = await verifyAccount(user);
     if (check !== sessionCheck) return;
-
+ 
     activeUser = user;
     activeRole = result.role;
     studentName = "";
@@ -1065,7 +1168,7 @@ onAuthStateChanged(auth, async user => {
     showError(message);
   }
 });
-
+ 
 showPage("home");
 </script>
 </body>
