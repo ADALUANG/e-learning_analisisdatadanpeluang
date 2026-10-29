@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ADALUANG | Ayo Dalami Peluang</title>
+
 <style>
 :root{
   --purple:#8056d9;
@@ -17,7 +17,9 @@
   --muted:#827d9f;
   --white:#fff;
 }
+
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:"Trebuchet MS",Arial,sans-serif;
@@ -28,143 +30,411 @@ body{
     #fcfaff;
   min-height:100vh;
 }
+
 button,input{font:inherit}
 button{cursor:pointer}
+
 header{
-  height:82px;padding:0 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  background:#ffffffd9;border-bottom:1px solid #eee6ff;
+  height:82px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#ffffffd9;
+  border-bottom:1px solid #eee6ff;
 }
+
 .logo{display:flex;align-items:center;gap:12px}
+
 .logo-mark{
-  width:44px;height:44px;border-radius:15px;
+  width:44px;height:44px;
+  border-radius:15px;
   display:grid;place-items:center;
   background:linear-gradient(135deg,#a88af8,#7048d5);
   color:white;font-size:30px;font-weight:bold;
 }
-.logo-name{font-size:23px;font-weight:900;letter-spacing:1px;color:var(--purple)}
-.logo small{display:block;font-size:9px;letter-spacing:2px;color:var(--muted);margin-top:4px}
-.header-note{color:var(--purple);font-style:italic;font-size:16px}
+
+.logo-name{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:var(--purple);
+}
+
+.logo small{
+  display:block;
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.header-note{
+  color:var(--purple);
+  font-style:italic;
+  font-size:16px;
+}
+
 main{
-  max-width:1400px;margin:auto;padding:35px 4%;
-  display:grid;grid-template-columns:1fr 1.12fr 1fr;
-  gap:30px;align-items:center;min-height:calc(100vh - 135px);
+  max-width:1400px;
+  margin:auto;
+  padding:35px 4%;
+  display:grid;
+  grid-template-columns:1fr 1.12fr 1fr;
+  gap:30px;
+  align-items:center;
+  min-height:calc(100vh - 135px);
 }
-.side h1{font-size:clamp(36px,3.7vw,57px);line-height:1.08;margin:18px 0;color:var(--deep)}
-.side h1 span{display:block;color:var(--purple)}
+
+.side h1{
+  font-size:clamp(36px,3.7vw,57px);
+  line-height:1.08;
+  margin:18px 0;
+  color:var(--deep);
+}
+
+.side h1 span{
+  display:block;
+  color:var(--purple);
+}
+
 .eyebrow{
-  display:inline-block;padding:9px 15px;border-radius:30px;
-  background:var(--lavender);color:var(--purple);
-  font-size:11px;font-weight:900;letter-spacing:1.5px;
+  display:inline-block;
+  padding:9px 15px;
+  border-radius:30px;
+  background:var(--lavender);
+  color:var(--purple);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.5px;
 }
-.side p{color:var(--muted);line-height:1.8;font-size:15px}
-.art{width:100%;height:auto;display:block;margin-top:20px}
-.doodle{color:#9a7be8;font-size:17px;font-style:italic;transform:rotate(-8deg)}
+
+.side p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:15px;
+}
+
+.art{
+  width:100%;
+  height:auto;
+  display:block;
+  margin-top:20px;
+}
+
 .card{
-  background:#ffffffed;border:1px solid #eee6ff;
-  border-radius:27px;padding:28px;
+  background:#ffffffed;
+  border:1px solid #eee6ff;
+  border-radius:27px;
+  padding:28px;
   box-shadow:0 20px 65px #6541a51a;
 }
-.card-head{text-align:center;margin-bottom:22px}
-.card-head h2{font-size:27px;color:var(--deep);margin:0 0 8px}
-.card-head p{color:var(--muted);margin:0}
-.roles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.card-head{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.card-head h2{
+  font-size:27px;
+  color:var(--deep);
+  margin:0 0 8px;
+}
+
+.card-head p{
+  color:var(--muted);
+  margin:0;
+}
+
+.roles{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
 .role{
-  border:1px solid #e8ddff;border-radius:18px;
-  padding:16px 12px;text-align:left;
+  border:1px solid #e8ddff;
+  border-radius:18px;
+  padding:16px 12px;
+  text-align:left;
   background:linear-gradient(145deg,#f8f2ff,#efebff);
-  color:var(--text);transition:.2s;
+  color:var(--text);
+  transition:.2s;
 }
-.role.student{background:linear-gradient(145deg,#eff8ff,#e2f2ff);border-color:#d9eaff}
-.role:hover{transform:translateY(-3px);box-shadow:0 8px 20px #7d5acb16}
+
+.role.student{
+  background:linear-gradient(145deg,#eff8ff,#e2f2ff);
+  border-color:#d9eaff;
+}
+
+.role:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px #7d5acb16;
+}
+
 .avatar{
-  height:64px;width:64px;border-radius:50%;margin:0 auto 12px;
-  display:grid;place-items:center;background:#e3d5ff;font-size:35px;
+  height:64px;
+  width:64px;
+  border-radius:50%;
+  margin:0 auto 12px;
+  display:grid;
+  place-items:center;
+  background:#e3d5ff;
+  font-size:35px;
 }
+
 .student .avatar{background:#cfeaff}
+
 .role strong,.role small{display:block}
+
 .role strong{font-size:15px}
-.role small{font-size:11px;color:var(--muted);margin-top:6px}
+
+.role small{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:6px;
+}
+
 .arrow{
-  display:grid;place-items:center;width:29px;height:29px;
-  border-radius:50%;background:#b49aef;color:white;margin-top:12px;
+  display:grid;
+  place-items:center;
+  width:29px;height:29px;
+  border-radius:50%;
+  background:#b49aef;
+  color:white;
+  margin-top:12px;
 }
+
 .student .arrow{background:#78b6ed}
+
 .auth-box{
-  margin-top:20px;padding:18px;border-radius:17px;
-  border:1px solid #e9e1ff;background:#fdfcff;
+  margin-top:20px;
+  padding:18px;
+  border-radius:17px;
+  border:1px solid #e9e1ff;
+  background:#fdfcff;
 }
-.tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #eee7ff;margin-bottom:20px}
-.tab{border:0;background:none;padding:12px;color:#a09ab9;font-weight:bold}
-.tab.active{color:var(--purple);border-bottom:3px solid var(--purple)}
+
+.tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-bottom:1px solid #eee7ff;
+  margin-bottom:20px;
+}
+
+.tab{
+  border:0;
+  background:none;
+  padding:12px;
+  color:#a09ab9;
+  font-weight:bold;
+}
+
+.tab.active{
+  color:var(--purple);
+  border-bottom:3px solid var(--purple);
+}
+
 .field{margin-bottom:14px}
-.field label{display:block;font-size:12px;font-weight:bold;margin-bottom:7px}
+
+.field label{
+  display:block;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
 .field input{
-  width:100%;padding:13px;border-radius:11px;
-  border:1px solid #ddd6f3;background:white;outline:none;color:var(--text);
+  width:100%;
+  padding:13px;
+  border-radius:11px;
+  border:1px solid #ddd6f3;
+  background:white;
+  outline:none;
+  color:var(--text);
 }
-.field input:focus{border-color:var(--purple);box-shadow:0 0 0 3px #eee6ff}
+
+.field input:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 0 3px #eee6ff;
+}
+
 .primary{
-  width:100%;border:0;border-radius:12px;padding:14px;
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:14px;
   background:linear-gradient(100deg,#9871eb,#7950d7);
-  color:white;font-weight:bold;box-shadow:0 7px 16px #8056d92a;
+  color:white;
+  font-weight:bold;
+  box-shadow:0 7px 16px #8056d92a;
 }
+
 .primary:hover{filter:brightness(.97)}
-.text-btn{border:0;background:none;color:var(--purple);font-size:12px;padding:12px 4px}
-.switch-line{text-align:center;font-size:12px;color:var(--muted);margin:16px 0 0}
-.message{font-size:12px;line-height:1.5;overflow-wrap:anywhere;color:#7550b8;margin:8px 0}
+
+.text-btn{
+  border:0;
+  background:none;
+  color:var(--purple);
+  font-size:12px;
+  padding:12px 4px;
+}
+
+.switch-line{
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  margin:16px 0 0;
+}
+
+.message{
+  font-size:12px;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+  color:#7550b8;
+  margin:8px 0;
+}
+
 .hidden{display:none!important}
+
 .back-btn{margin-top:12px}
-.right-note{text-align:center;color:var(--purple);font-style:italic;line-height:1.6}
-.right-art{width:100%;height:auto;display:block}
-.dashboard{grid-column:1/-1;max-width:850px;width:100%;margin:auto}
-.panel{background:white;border:1px solid #eee6ff;padding:22px;border-radius:18px;margin:16px 0}
-.panel input,.panel textarea{width:100%;padding:12px;border:1px solid #ddd6f3;border-radius:10px;margin:7px 0 14px}
-.item{padding:14px;border:1px solid #eee6ff;border-radius:12px;margin:10px 0;overflow-wrap:anywhere}
+
+.right-note{
+  text-align:center;
+  color:var(--purple);
+  font-style:italic;
+  line-height:1.6;
+}
+
+.right-art{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.dashboard{
+  grid-column:1/-1;
+  max-width:850px;
+  width:100%;
+  margin:auto;
+}
+
+.panel{
+  background:white;
+  border:1px solid #eee6ff;
+  padding:22px;
+  border-radius:18px;
+  margin:16px 0;
+}
+
+.panel input,.panel textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd6f3;
+  border-radius:10px;
+  margin:7px 0 14px;
+}
+
+.item{
+  padding:14px;
+  border:1px solid #eee6ff;
+  border-radius:12px;
+  margin:10px 0;
+  overflow-wrap:anywhere;
+}
+
 .item a{color:var(--purple)}
-.topline{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.outline{background:white;border:1px solid #ded4fa;border-radius:10px;padding:10px 15px;color:var(--purple)}
-footer{text-align:center;padding:17px;background:#f1ebff;color:#9183b8;font-size:12px}
+
+.topline{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.outline{
+  background:white;
+  border:1px solid #ded4fa;
+  border-radius:10px;
+  padding:10px 15px;
+  color:var(--purple);
+}
+
+footer{
+  text-align:center;
+  padding:17px;
+  background:#f1ebff;
+  color:#9183b8;
+  font-size:12px;
+}
+
 @media(max-width:1000px){
-  main{grid-template-columns:1fr 1.2fr;gap:20px}
+  main{
+    grid-template-columns:1fr 1.2fr;
+    gap:20px;
+  }
   .right-side{display:none}
   .side h1{font-size:40px}
 }
+
 @media(max-width:680px){
-  header{height:72px;padding:0 5%}
+  header{
+    height:72px;
+    padding:0 5%;
+  }
   .header-note{display:none}
-  main{display:flex;flex-direction:column;padding:24px 5%;align-items:stretch}
+  main{
+    display:flex;
+    flex-direction:column;
+    padding:24px 5%;
+    align-items:stretch;
+  }
   .left-side{text-align:center}
-  .left-side .art{max-width:300px;margin:10px auto 0}
+  .left-side .art{
+    max-width:300px;
+    margin:10px auto 0;
+  }
   .left-side h1{font-size:42px}
   .card{padding:20px}
 }
-@media(max-width:370px){.roles{grid-template-columns:1fr}}
+
+@media(max-width:370px){
+  .roles{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">
     <div class="logo-mark">∑</div>
-    <div><div class="logo-name">ADALUANG</div><small>RUANG BELAJAR MATEMATIKA</small></div>
+    <div>
+      <div class="logo-name">ADALUANG</div>
+      <small>RUANG BELAJAR MATEMATIKA</small>
+    </div>
   </div>
   <div class="header-note">Ayo Dalami Peluang ✦</div>
 </header>
 
 <main>
+
 <section class="side left-side">
   <span class="eyebrow">✦ RUANG BELAJAR DIGITAL</span>
   <h1>Ayo Dalami <span>Peluang!</span></h1>
   <p>Belajar matematika jadi lebih seru, interaktif, dan dekat dengan kehidupan sehari-hari.</p>
+
   <svg class="art" viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi murid belajar matematika">
     <ellipse cx="175" cy="256" rx="153" ry="24" fill="#e8dcff"/>
-    <path d="M32 226 Q4 162 66 132 Q118 104 175 144 Q233 102 302 152 Q351 198 316 245Z" fill="#eee6ff"/>
+    <path d="M32 226Q4 162 66 132Q118 104 175 144Q233 102 302 152Q351 198 316 245Z" fill="#eee6ff"/>
+
     <g transform="translate(34 210)">
       <rect x="0" y="24" width="92" height="19" rx="5" fill="#70b9ee"/>
       <rect x="5" y="5" width="91" height="19" rx="5" fill="#b69af4"/>
       <path d="M12 12H84M9 31H82" stroke="#fff" stroke-width="2"/>
       <rect x="12" y="-14" width="74" height="19" rx="5" fill="#fff0bd"/>
     </g>
+
     <g transform="translate(226 178)">
       <path d="M35 76Q-8 28 11 0Q47 22 35 76" fill="#8ecfb9"/>
       <path d="M36 76Q41 24 77 15Q79 51 36 76" fill="#68b89e"/>
@@ -172,6 +442,7 @@ footer{text-align:center;padding:17px;background:#f1ebff;color:#9183b8;font-size
       <path d="M14 79H65L57 102H22Z" fill="#b79aef"/>
       <path d="M20 83H60" stroke="#8c6bd0" stroke-width="3"/>
     </g>
+
     <g>
       <path d="M105 135Q92 92 127 79Q163 67 181 99L190 154L113 160Z" fill="#5b42a7"/>
       <path d="M111 116Q107 88 135 85Q161 85 169 115L168 158L116 160Z" fill="#35266f"/>
@@ -186,18 +457,22 @@ footer{text-align:center;padding:17px;background:#f1ebff;color:#9183b8;font-size
       <path d="M104 217L178 217L194 247L89 247Z" fill="#7c5bd0"/>
       <path d="M118 247L119 258M166 247L164 258" stroke="#49368e" stroke-width="8" stroke-linecap="round"/>
     </g>
+
     <g transform="translate(128 211) rotate(-5)">
       <rect width="108" height="49" rx="7" fill="#6d50bc"/>
       <rect x="5" y="5" width="98" height="36" rx="4" fill="#dcefff"/>
       <path d="M43 47H68" stroke="#6d50bc" stroke-width="4"/>
       <path d="M51 16L57 22L68 11" fill="none" stroke="#8d73da" stroke-width="3" stroke-linecap="round"/>
     </g>
+
     <g fill="#8b6cda" font-family="Arial" font-size="17" font-style="italic">
       <text x="219" y="55">P(A) = ?</text>
-      <text x="20" y="85">✦</text><text x="280" y="120">＋</text>
+      <text x="20" y="85">✦</text>
+      <text x="280" y="120">＋</text>
     </g>
+
     <g transform="translate(52 118)" stroke="#7960d4" stroke-width="2.5" fill="none">
-      <path d="M0 0L22 -7L32 13L10 21Z" fill="#fff" />
+      <path d="M0 0L22 -7L32 13L10 21Z" fill="#fff"/>
       <path d="M10 21V0M0 0L22 -7M10 0L32 13"/>
       <circle cx="8" cy="7" r="2" fill="#7960d4"/>
     </g>
@@ -209,14 +484,20 @@ footer{text-align:center;padding:17px;background:#f1ebff;color:#9183b8;font-size
     <h2 id="welcome-title">Selamat datang!</h2>
     <p id="welcome-subtitle">Pilih ruang belajarmu.</p>
   </div>
+
   <div id="role-selection" class="roles">
     <button class="role" onclick="chooseRole('guru')">
-      <div class="avatar">👩🏻‍🏫</div><strong>Ruang Guru</strong>
-      <small>Kelola kelas dan materi</small><div class="arrow">➜</div>
+      <div class="avatar">👩🏻‍🏫</div>
+      <strong>Ruang Guru</strong>
+      <small>Kelola kelas dan materi</small>
+      <div class="arrow">➜</div>
     </button>
+
     <button class="role student" onclick="chooseRole('murid')">
-      <div class="avatar">🧑🏻‍🎓</div><strong>Ruang Murid</strong>
-      <small>Belajar materi peluang</small><div class="arrow">➜</div>
+      <div class="avatar">🧑🏻‍🎓</div>
+      <strong>Ruang Murid</strong>
+      <small>Belajar materi peluang</small>
+      <div class="arrow">➜</div>
     </button>
   </div>
 
@@ -225,55 +506,67 @@ footer{text-align:center;padding:17px;background:#f1ebff;color:#9183b8;font-size
       <button id="login-tab" class="tab active" onclick="setMode(false)">Masuk</button>
       <button id="register-tab" class="tab" onclick="setMode(true)">Daftar</button>
     </div>
+
     <form id="auth-form">
       <div id="name-field" class="field hidden">
         <label for="fullname">Nama lengkap</label>
         <input id="fullname" placeholder="Masukkan nama lengkap">
       </div>
+
       <div class="field">
         <label for="email">Email</label>
         <input id="email" type="email" placeholder="nama@email.com" required>
       </div>
+
       <div class="field">
         <label for="password">Kata sandi</label>
         <input id="password" type="password" minlength="6" placeholder="Minimal 6 karakter" required>
       </div>
+
       <p id="auth-message" class="message"></p>
       <button class="primary" id="submit-button" type="submit">Masuk →</button>
     </form>
+
     <button class="text-btn back-btn" onclick="backToRoles()">← Kembali memilih ruang</button>
   </div>
-  <p class="switch-line" id="bottom-switch">Belum punya akun? <button class="text-btn" style="display:inline" onclick="openRegister()">Daftar sekarang</button></p>
+
+  <p class="switch-line" id="bottom-switch">
+    Belum punya akun?
+    <button class="text-btn" style="display:inline" onclick="openRegister()">Daftar sekarang</button>
+  </p>
 </section>
 
 <section class="side right-side">
   <p class="right-note">Peluang hari ini,<br>kesempatan masa depan ♡</p>
+
   <svg class="right-art" viewBox="0 0 350 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi tumpukan buku matematika">
     <ellipse cx="176" cy="302" rx="150" ry="24" fill="#e9ddff"/>
     <path d="M29 263Q5 202 56 172Q92 151 132 176Q179 130 231 176Q294 182 315 231Q342 281 297 301Z" fill="#f0e8ff"/>
+
     <g transform="translate(48 214)">
       <path d="M13 0H76L68 76H20Z" fill="#bca0f3"/>
       <path d="M21 0L12 -37M37 0L41 -48M55 0L72 -29" stroke="#77bca7" stroke-width="11" stroke-linecap="round"/>
       <path d="M28 15H63M26 24H62" stroke="#dfd0ff" stroke-width="3"/>
     </g>
+
     <g transform="translate(89 205)">
       <path d="M0 42L169 23L205 44L36 66Z" fill="#e6b0ff"/>
       <path d="M0 42L36 66V93L0 70Z" fill="#a87be6"/>
       <path d="M36 66L205 44V70L36 93Z" fill="#8f63d5"/>
-      <text x="77" y="66" font-size="15" font-family="Arial" fill="white" font-weight="bold">Peluang</text>
+
       <path d="M-9 9L160 -9L199 12L30 34Z" fill="#8dd4f1"/>
       <path d="M-9 9L30 34V60L-9 36Z" fill="#5ca9db"/>
       <path d="M30 34L199 12V38L30 60Z" fill="#54a4d4"/>
-      <text x="72" y="33" font-size="14" font-family="Arial" fill="white" font-weight="bold">Statistika</text>
+
       <path d="M-17 -24L152 -44L190 -22L21 1Z" fill="#a7dfc7"/>
       <path d="M-17 -24L21 1V26L-17 2Z" fill="#72c5a5"/>
       <path d="M21 1L190 -22V3L21 26Z" fill="#68ba9a"/>
-      <text x="68" y="-2" font-size="14" font-family="Arial" fill="white" font-weight="bold">Logika</text>
+
       <path d="M-7 -57L162 -77L201 -54L32 -32Z" fill="#ffd67e"/>
       <path d="M-7 -57L32 -32V-7L-7 -33Z" fill="#f2bb58"/>
       <path d="M32 -32L201 -54V-29L32 -7Z" fill="#f6c76d"/>
-      <text x="71" y="-37" font-size="14" font-family="Arial" fill="white" font-weight="bold">Matematika</text>
     </g>
+
     <g transform="translate(105 75)">
       <path d="M0 40L101 19L186 45L82 69Z" fill="#7653ca"/>
       <path d="M0 40L82 69V82L0 53Z" fill="#54359e"/>
@@ -281,14 +574,17 @@ footer{text-align:center;padding:17px;background:#f1ebff;color:#9183b8;font-size
       <path d="M36 26L136 5L186 20L82 45Z" fill="#9b7be7"/>
       <path d="M36 26L82 45V69L36 50Z" fill="#6e4cbd"/>
       <path d="M82 45L186 20V45L82 69Z" fill="#54359e"/>
-      <path d="M136 5L186 20L82 45L36 26Z" fill="#8562d7"/>
       <path d="M143 8L144 -5" stroke="#f6cf78" stroke-width="4" stroke-linecap="round"/>
       <path d="M144 -5L151 -4L148 8Z" fill="#ffd77d"/>
     </g>
+
     <g fill="#8f6fda" font-family="Arial" font-style="italic" font-size="16">
-      <text x="22" y="48">P(A)</text><text x="250" y="106">½</text>
-      <text x="256" y="130">✦</text><text x="23" y="170">＋</text>
+      <text x="22" y="48">P(A)</text>
+      <text x="250" y="106">½</text>
+      <text x="256" y="130">✦</text>
+      <text x="23" y="170">＋</text>
     </g>
+
     <g transform="translate(264 258)">
       <path d="M0 9L18 0L37 10L19 21Z" fill="#fff"/>
       <path d="M0 9L19 21V42L0 30Z" fill="#d5c5ff"/>
@@ -302,168 +598,439 @@ footer{text-align:center;padding:17px;background:#f1ebff;color:#9183b8;font-size
 
 <section id="dashboard" class="dashboard hidden">
   <div class="topline">
-    <div><span class="eyebrow">RUANG BELAJAR</span><h2 id="dashboard-title">Halo!</h2><p id="dashboard-subtitle"></p></div>
+    <div>
+      <span class="eyebrow">RUANG BELAJAR</span>
+      <h2 id="dashboard-title">Halo!</h2>
+      <p id="dashboard-subtitle"></p>
+    </div>
     <button class="outline" id="logout">Keluar ↗</button>
   </div>
   <div id="dashboard-content"></div>
 </section>
+
 </main>
+
 <footer>© 2026 ADALUANG &nbsp;·&nbsp; Ayo Dalami Peluang ✦</footer>
 
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import{getAuth,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut}from"https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-import{getFirestore,doc,getDoc,setDoc,collection,addDoc,getDocs,query,where,serverTimestamp}from"https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 
-const firebaseConfig={
-apiKey:"AIzaSyDuVGHdk05SzOdTGuXsqfKZZF1dYsmQDU",
-authDomain:"adaluang.firebaseapp.com",
-projectId:"adaluang",
-storageBucket:"adaluang.firebasestorage.app",
-messagingSenderId:"970393246155",
-appId:"1:970393246155:web:e2f6971c49d85624acbe4",
-measurementId:"G-PNKBBCZLMN"
-};
-const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
-const $=id=>document.getElementById(id);
-let selectedRole="",registerMode=false,currentUser=null,profile=null;
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
-window.chooseRole=role=>{
-selectedRole=role;
-$("role-selection").classList.add("hidden");
-$("auth-area").classList.remove("hidden");
-$("bottom-switch").classList.add("hidden");
-setMode(false);
-$("welcome-title").textContent=role==="guru"?"Ruang Guru":"Ruang Murid";
-$("welcome-subtitle").textContent="Masuk untuk melanjutkan perjalanan belajarmu.";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDuVGHdk05SzOdTGuXsqfKZZ1dWysmQDU",
+  authDomain: "adaluang.firebaseapp.com",
+  projectId: "adaluang",
+  storageBucket: "adaluang.firebasestorage.app",
+  messagingSenderId: "970393246155",
+  appId: "1:970393246155:web:e2f6971c49d85624acbe4",
+  measurementId: "G-PNKBBCZLMN"
 };
-window.backToRoles=()=>{
-$("role-selection").classList.remove("hidden");
-$("auth-area").classList.add("hidden");
-$("bottom-switch").classList.remove("hidden");
-$("welcome-title").textContent="Selamat datang!";
-$("welcome-subtitle").textContent="Pilih ruang belajarmu.";
-$("auth-message").textContent="";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const $ = id => document.getElementById(id);
+
+let selectedRole = "";
+let registerMode = false;
+let currentUser = null;
+let profile = null;
+
+window.chooseRole = role => {
+  selectedRole = role;
+  $("role-selection").classList.add("hidden");
+  $("auth-area").classList.remove("hidden");
+  $("bottom-switch").classList.add("hidden");
+
+  setMode(false);
+
+  $("welcome-title").textContent =
+    role === "guru" ? "Ruang Guru" : "Ruang Murid";
+
+  $("welcome-subtitle").textContent =
+    "Masuk untuk melanjutkan perjalanan belajarmu.";
 };
-window.setMode=mode=>{
-registerMode=mode;
-$("name-field").classList.toggle("hidden",!mode);
-$("fullname").required=mode;
-$("login-tab").classList.toggle("active",!mode);
-$("register-tab").classList.toggle("active",mode);
-$("submit-button").textContent=mode?"Buat Akun ✦":"Masuk →";
-$("auth-message").textContent="";
+
+window.backToRoles = () => {
+  $("role-selection").classList.remove("hidden");
+  $("auth-area").classList.add("hidden");
+  $("bottom-switch").classList.remove("hidden");
+  $("welcome-title").textContent = "Selamat datang!";
+  $("welcome-subtitle").textContent = "Pilih ruang belajarmu.";
+  $("auth-message").textContent = "";
 };
-window.openRegister=()=>{
-if(!selectedRole)chooseRole("murid");
-setMode(true);
+
+window.setMode = mode => {
+  registerMode = mode;
+
+  $("name-field").classList.toggle("hidden", !mode);
+  $("fullname").required = mode;
+
+  $("login-tab").classList.toggle("active", !mode);
+  $("register-tab").classList.toggle("active", mode);
+
+  $("submit-button").textContent =
+    mode ? "Buat Akun ✦" : "Masuk →";
+
+  $("auth-message").textContent = "";
 };
-$("auth-form").addEventListener("submit",async e=>{
-e.preventDefault();
-$("submit-button").disabled=true;
-$("auth-message").textContent="Sedang memproses...";
-try{
-const email=$("email").value.trim(),password=$("password").value;
-if(registerMode){
-const name=$("fullname").value.trim();
-if(!name)throw Error("Nama lengkap wajib diisi.");
-const cred=await createUserWithEmailAndPassword(auth,email,password);
-await setDoc(doc(db,"users",cred.user.uid),{
-name,email:cred.user.email,role:selectedRole,
-approved:selectedRole==="murid",createdAt:serverTimestamp()
+
+window.openRegister = () => {
+  if (!selectedRole) chooseRole("murid");
+  setMode(true);
+};
+
+$("auth-form").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  $("submit-button").disabled = true;
+  $("auth-message").textContent = "Sedang memproses...";
+
+  try {
+    const email = $("email").value.trim();
+    const password = $("password").value;
+
+    if (registerMode) {
+      const name = $("fullname").value.trim();
+
+      if (!name) {
+        throw new Error("Nama lengkap wajib diisi.");
+      }
+
+      const credential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      await setDoc(doc(db, "users", credential.user.uid), {
+        name,
+        email: credential.user.email,
+        role: selectedRole,
+        approved: selectedRole === "murid",
+        createdAt: serverTimestamp()
+      });
+
+      if (selectedRole === "guru") {
+        await signOut(auth);
+        $("auth-message").textContent =
+          "Pendaftaran berhasil. Akun guru menunggu persetujuan admin.";
+        return;
+      }
+    } else {
+      await signInWithEmailAndPassword(auth, email, password);
+    }
+  } catch (error) {
+    $("auth-message").textContent = error.message;
+  } finally {
+    $("submit-button").disabled = false;
+  }
 });
-if(selectedRole==="guru"){
-await signOut(auth);
-$("auth-message").textContent="Pendaftaran berhasil. Akun guru menunggu persetujuan admin.";
-return;
+
+$("logout").addEventListener("click", () => signOut(auth));
+
+function esc(value = "") {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
 }
-}else{
-await signInWithEmailAndPassword(auth,email,password);
-}
-}catch(err){
-$("auth-message").textContent=err.message;
-}finally{$("submit-button").disabled=false}
+
+onAuthStateChanged(auth, async user => {
+  currentUser = user;
+
+  if (!user) {
+    $("dashboard").classList.add("hidden");
+    $("role-selection").classList.remove("hidden");
+    $("auth-area").classList.add("hidden");
+    $("bottom-switch").classList.remove("hidden");
+
+    document.querySelectorAll("main > .side").forEach(element => {
+      element.classList.remove("hidden");
+    });
+
+    document.querySelector(".card").classList.remove("hidden");
+
+    $("welcome-title").textContent = "Selamat datang!";
+    $("welcome-subtitle").textContent = "Pilih ruang belajarmu.";
+    return;
+  }
+
+  try {
+    const snapshot = await getDoc(doc(db, "users", user.uid));
+
+    if (!snapshot.exists()) {
+      await signOut(auth);
+      alert("Profil akun tidak ditemukan.");
+      return;
+    }
+
+    profile = snapshot.data();
+
+    if (profile.role === "guru" && !profile.approved) {
+      await signOut(auth);
+      alert("Akun guru menunggu persetujuan admin.");
+      return;
+    }
+
+    $("role-selection").classList.add("hidden");
+    $("auth-area").classList.add("hidden");
+    $("bottom-switch").classList.add("hidden");
+
+    document.querySelectorAll("main > .side").forEach(element => {
+      element.classList.add("hidden");
+    });
+
+    document.querySelector(".card").classList.add("hidden");
+
+    $("dashboard").classList.remove("hidden");
+    $("dashboard-title").textContent =
+      "Halo, " + (profile.name || user.email) + "!";
+
+    $("dashboard-subtitle").textContent =
+      "Selamat datang di ADALUANG.";
+
+    await renderDashboard();
+
+  } catch (error) {
+    console.error(error);
+    alert("Gagal memuat data. Periksa Firebase Rules.");
+  }
 });
 
-$("logout").addEventListener("click",()=>signOut(auth));
-function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+async function renderDashboard() {
+  const container = $("dashboard-content");
+  const role = profile.role;
 
-onAuthStateChanged(auth,async user=>{
-currentUser=user;
-if(!user){
-$("dashboard").classList.add("hidden");
-$("login-area")?.classList.remove("hidden");
-$("role-selection").classList.remove("hidden");
-$("auth-area").classList.add("hidden");
-$("bottom-switch").classList.remove("hidden");
-$("welcome-title").textContent="Selamat datang!";
-$("welcome-subtitle").textContent="Pilih ruang belajarmu.";
-return;
-}
-try{
-const snap=await getDoc(doc(db,"users",user.uid));
-if(!snap.exists()){await signOut(auth);alert("Profil akun tidak ditemukan.");return}
-profile=snap.data();
-if(profile.role==="guru"&&!profile.approved){
-await signOut(auth);alert("Akun guru menunggu persetujuan admin.");return;
-}
-$("role-selection").classList.add("hidden");
-$("auth-area").classList.add("hidden");
-$("bottom-switch").classList.add("hidden");
-document.querySelectorAll("main > .side").forEach(el=>el.classList.add("hidden"));
-document.querySelector(".card").classList.add("hidden");
-$("dashboard").classList.remove("hidden");
-$("dashboard-title").textContent="Halo, "+(profile.name||user.email)+"!";
-$("dashboard-subtitle").textContent="Selamat datang di ADALUANG.";
-await renderDashboard();
-}catch(err){console.error(err);alert("Gagal memuat data. Periksa Firebase Rules.")}
-});
+  if (role === "admin") {
+    container.innerHTML = `
+      <div class="panel">
+        <h3>✦ Persetujuan Akun Guru</h3>
+        <div id="pending">Memuat...</div>
+      </div>
 
-async function renderDashboard(){
-const c=$("dashboard-content"),role=profile.role;
-if(role==="admin"){
-c.innerHTML=`<div class="panel"><h3>✦ Persetujuan Akun Guru</h3><div id="pending">Memuat...</div></div>
-<div class="panel"><h3>📚 Tambah Materi</h3><form id="material-form"><label>Judul</label><input id="mtitle" required><label>Deskripsi</label><input id="mdesc" required><label>Link materi/PDF</label><input id="murl" type="url" required><button class="primary">Simpan Materi</button></form></div>`;
-await pendingTeachers();
-$("material-form").onsubmit=async e=>{
-e.preventDefault();
-await addDoc(collection(db,"materials"),{title:$("mtitle").value.trim(),description:$("mdesc").value.trim(),url:$("murl").value.trim(),createdBy:currentUser.uid,createdAt:serverTimestamp()});
-e.target.reset();alert("Materi berhasil disimpan.");
-};
-}else if(role==="guru"){
-c.innerHTML=`<div class="panel"><h3>✦ Buat Kelas</h3><form id="class-form"><label>Nama kelas</label><input id="cname" required placeholder="Contoh: X-1"><button class="primary">Buat Kelas</button></form></div><div class="panel"><h3>Kelas Saya</h3><div id="classes">Memuat...</div></div><div class="panel"><h3>📚 Materi Peluang</h3><div id="materials">Memuat...</div></div>`;
-$("class-form").onsubmit=async e=>{
-e.preventDefault();
-const code=Math.random().toString(36).slice(2,8).toUpperCase();
-await addDoc(collection(db,"classes"),{name:$("cname").value.trim(),code,teacherId:currentUser.uid,createdAt:serverTimestamp()});
-e.target.reset();alert("Kelas dibuat. Kode: "+code);await renderClasses();
-};
-await renderClasses();await renderMaterials();
-}else if(role==="murid"){
-c.innerHTML=`<div class="panel"><h3>🌷 Materi Pembelajaran</h3><div id="materials">Memuat...</div></div><div class="panel"><h3>✦ Progres Belajar</h3><p>Fitur gabung kelas, kuis, dan rekap nilai akan ditambahkan berikutnya.</p></div>`;
-await renderMaterials();
-}else{c.innerHTML="<div class='panel'>Peran akun tidak dikenal.</div>"}
+      <div class="panel">
+        <h3>📚 Tambah Materi</h3>
+        <form id="material-form">
+          <label>Judul</label>
+          <input id="mtitle" required>
+
+          <label>Deskripsi</label>
+          <input id="mdesc" required>
+
+          <label>Link materi/PDF</label>
+          <input id="murl" type="url" required>
+
+          <button class="primary">Simpan Materi</button>
+        </form>
+      </div>
+    `;
+
+    await pendingTeachers();
+
+    $("material-form").onsubmit = async event => {
+      event.preventDefault();
+
+      try {
+        await addDoc(collection(db, "materials"), {
+          title: $("mtitle").value.trim(),
+          description: $("mdesc").value.trim(),
+          url: $("murl").value.trim(),
+          createdBy: currentUser.uid,
+          createdAt: serverTimestamp()
+        });
+
+        event.target.reset();
+        alert("Materi berhasil disimpan.");
+      } catch (error) {
+        alert("Gagal menyimpan materi: " + error.message);
+      }
+    };
+
+  } else if (role === "guru") {
+    container.innerHTML = `
+      <div class="panel">
+        <h3>✦ Buat Kelas</h3>
+        <form id="class-form">
+          <label>Nama kelas</label>
+          <input id="cname" required placeholder="Contoh: X-1">
+          <button class="primary">Buat Kelas</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h3>Kelas Saya</h3>
+        <div id="classes">Memuat...</div>
+      </div>
+
+      <div class="panel">
+        <h3>📚 Materi Peluang</h3>
+        <div id="materials">Memuat...</div>
+      </div>
+    `;
+
+    $("class-form").onsubmit = async event => {
+      event.preventDefault();
+
+      try {
+        const code = Math.random()
+          .toString(36)
+          .slice(2, 8)
+          .toUpperCase();
+
+        await addDoc(collection(db, "classes"), {
+          name: $("cname").value.trim(),
+          code,
+          teacherId: currentUser.uid,
+          createdAt: serverTimestamp()
+        });
+
+        event.target.reset();
+        alert("Kelas dibuat. Kode: " + code);
+        await renderClasses();
+
+      } catch (error) {
+        alert("Gagal membuat kelas: " + error.message);
+      }
+    };
+
+    await renderClasses();
+    await renderMaterials();
+
+  } else if (role === "murid") {
+    container.innerHTML = `
+      <div class="panel">
+        <h3>🌷 Materi Pembelajaran</h3>
+        <div id="materials">Memuat...</div>
+      </div>
+
+      <div class="panel">
+        <h3>✦ Progres Belajar</h3>
+        <p>Fitur gabung kelas, kuis, dan rekap nilai akan ditambahkan berikutnya.</p>
+      </div>
+    `;
+
+    await renderMaterials();
+
+  } else {
+    container.innerHTML =
+      "<div class='panel'>Peran akun tidak dikenal.</div>";
+  }
 }
-async function pendingTeachers(){
-const el=$("pending"),snap=await getDocs(query(collection(db,"users"),where("role","==","guru")));
-const docs=snap.docs.filter(d=>!d.data().approved);
-if(!docs.length){el.textContent="Tidak ada akun yang menunggu persetujuan.";return}
-el.innerHTML=docs.map(d=>`<div class="item"><b>${esc(d.data().name)}</b><br>${esc(d.data().email)}<br><button class="primary" data-approve="${d.id}">Setujui Guru</button></div>`).join("");
-el.querySelectorAll("[data-approve]").forEach(b=>b.onclick=async()=>{
-await setDoc(doc(db,"users",b.dataset.approve),{approved:true},{merge:true});
-await pendingTeachers();
-});
+
+async function pendingTeachers() {
+  const element = $("pending");
+
+  const snapshot = await getDocs(
+    query(collection(db, "users"), where("role", "==", "guru"))
+  );
+
+  const pending = snapshot.docs.filter(document => {
+    return !document.data().approved;
+  });
+
+  if (!pending.length) {
+    element.textContent =
+      "Tidak ada akun yang menunggu persetujuan.";
+    return;
+  }
+
+  element.innerHTML = pending.map(document => `
+    <div class="item">
+      <b>${esc(document.data().name)}</b><br>
+      ${esc(document.data().email)}<br>
+      <button class="primary" data-approve="${document.id}">
+        Setujui Guru
+      </button>
+    </div>
+  `).join("");
+
+  element.querySelectorAll("[data-approve]").forEach(button => {
+    button.onclick = async () => {
+      try {
+        await setDoc(
+          doc(db, "users", button.dataset.approve),
+          { approved: true },
+          { merge: true }
+        );
+
+        await pendingTeachers();
+      } catch (error) {
+        alert("Gagal menyetujui guru: " + error.message);
+      }
+    };
+  });
 }
-async function renderClasses(){
-const el=$("classes"),snap=await getDocs(query(collection(db,"classes"),where("teacherId","==",currentUser.uid)));
-el.innerHTML=snap.empty?"Belum ada kelas.":snap.docs.map(d=>`<div class="item"><b>${esc(d.data().name)}</b><br>Kode kelas: <b>${esc(d.data().code)}</b></div>`).join("");
+
+async function renderClasses() {
+  const element = $("classes");
+
+  const snapshot = await getDocs(
+    query(
+      collection(db, "classes"),
+      where("teacherId", "==", currentUser.uid)
+    )
+  );
+
+  element.innerHTML = snapshot.empty
+    ? "Belum ada kelas."
+    : snapshot.docs.map(document => `
+        <div class="item">
+          <b>${esc(document.data().name)}</b><br>
+          Kode kelas: <b>${esc(document.data().code)}</b>
+        </div>
+      `).join("");
 }
-async function renderMaterials(){
-const el=$("materials"),snap=await getDocs(collection(db,"materials"));
-el.innerHTML=snap.empty?"Belum ada materi.":snap.docs.map(d=>{
-const m=d.data();return `<div class="item"><b>${esc(m.title)}</b><p>${esc(m.description)}</p><a href="${esc(m.url)}" target="_blank" rel="noopener noreferrer">Buka materi ↗</a></div>`;
-}).join("");
+
+async function renderMaterials() {
+  const element = $("materials");
+  const snapshot = await getDocs(collection(db, "materials"));
+
+  element.innerHTML = snapshot.empty
+    ? "Belum ada materi."
+    : snapshot.docs.map(document => {
+        const material = document.data();
+
+        return `
+          <div class="item">
+            <b>${esc(material.title)}</b>
+            <p>${esc(material.description)}</p>
+            <a href="${esc(material.url)}"
+               target="_blank"
+               rel="noopener noreferrer">
+              Buka materi ↗
+            </a>
+          </div>
+        `;
+      }).join("");
 }
 </script>
+
 </body>
 </html>
